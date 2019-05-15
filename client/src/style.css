@@ -23,21 +23,21 @@
 
 @font-face {
   font-family: "Circular Pro";
-  src: url("assets/circular-pro-book.woff");
+  src: url("assets/fonts/circular-pro-book.woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Circular Pro";
-  src: url("assets/circular-pro-medium.woff");
+  src: url("assets/fonts/circular-pro-medium.woff");
   font-weight: 600;
   font-style: medium;
 }
 
 @font-face {
   font-family: "Circular Pro";
-  src: url("assets/circular-pro-bold.woff");
+  src: url("assets/fonts/circular-pro-bold.woff");
   font-weight: 800;
   font-style: bold;
 }
