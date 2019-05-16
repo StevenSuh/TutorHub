@@ -47,13 +47,15 @@ html,
 #root {
   color: var(--black-color);
   font-family: 'Circular Pro', Helvetica, sans-serif;
-  margin: auto;
   position: relative;
   width: 100%;
-  max-width: 500px;
 }
 
 body {
+  border: 1px solid var(--grey-color);
+  margin: auto !important;
+  min-height: 100vh;
+  max-width: 500px;
   overflow-x: hidden;
 }
 
@@ -91,6 +93,14 @@ a {
 * {
   box-sizing: border-box;
   position: relative;
+}
+
+.hover {
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover:active {
+  opacity: 0.5;
 }
 
 .transition-group {
