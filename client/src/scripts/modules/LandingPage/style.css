@@ -2,3 +2,116 @@
   /* example */
   width: 100%;
 }
+
+.title {
+  position: relative;
+  width: 234px;
+  height: 63px;
+  left: calc(50% - 234px/2 - 1px);
+  margin-top: 50%;
+
+  font-family: Circular Pro;
+  font-size: 50px;
+  line-height: 63px;
+  text-align: center;
+
+  color: #6F82A5;
+
+
+}
+
+.spacer{
+    margin-top:25px;
+}
+
+.button{
+  position: relative;
+  width: 255px;
+  height: 60px;
+  margin-top: 15px;
+  left: calc(50% - 234px/2 - 1px);
+  border-radius: 3px;
+}
+
+.bottom{
+  position: relative;
+  bottom: 0;
+  margin-top: 100px;
+}
+
+.blue_back{
+  background: var(--blue-color);
+}
+
+.grey_back{
+  background: var(--light-grey-color)
+}
+
+.centered{
+  position: relative;
+  top: 28.33%;
+  bottom: 30%;
+  left: 36.08%;
+  right: 35.69%;
+
+
+
+  align: center;
+  vertical-align: middle;
+}
+
+.text{
+  font-family: Circular Pro;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.forgot{
+  text-align:center;
+  padding-top: 21px;
+}
+
+.white_word{
+  color: var(--white-color)
+}
+
+.black_word{
+  color: var(--black-color)
+}
+
+.grey_word{
+  color: var(--light-grey-color)
+}
+
+.back{
+  position: relative;
+  width: 23px;
+  height: 23px;
+  left: 24px;
+  top: 28px;
+}
+
+.back_text{
+  position: relative;
+  width: 55px;
+  height: 25px;
+  left: 64px;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #616161;
+}
+
+.textbox{
+
+  padding-left: calc(50% - 51px/2 - 115px);
+  margin-top: 71px;
+}
+
+input{
+  margin-top: 20px;
+  border: 0;
+  width: 281px;
+  border-bottom: 2px solid #A9A9A9;
+}
