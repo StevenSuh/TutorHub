@@ -1,5 +1,6 @@
 .navbar {
-  border-top: 1px solid var(--light-grey-color);
+  background-color: var(--white-color);
+  border: 1px solid var(--light-grey-color);
   display: flex;
   justify-content: space-around;
   position: fixed;
@@ -15,6 +16,7 @@
 .item {
   color: var(--grey-color);
   display: inline-block;
+  font-size: 12px;
   text-align: center;
 }
 

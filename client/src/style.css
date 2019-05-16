@@ -47,6 +47,7 @@ html,
 #root {
   color: var(--black-color);
   font-family: 'Circular Pro', Helvetica, sans-serif;
+  overflow: hidden;
   position: relative;
   width: 100%;
 }
@@ -69,7 +70,9 @@ button:focus {
 }
 
 hr {
-  background-color: var(--grey-color);
+  background-color: var(--lighter-grey-color);
+  margin: 0;
+  padding: 0;
 }
 
 body,
@@ -95,8 +98,22 @@ a {
   position: relative;
 }
 
+input,
+textarea {
+  color: var(--black-color);
+  font-family: 'Circular Pro', Helvetica, sans-serif;
+  resize: none;
+  outline: none;
+}
+
+button {
+  color: var(--black-color);
+  font-family: 'Circular Pro', Helvetica, sans-serif;
+  border: none;
+}
+
 .hover {
-  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover:active {
