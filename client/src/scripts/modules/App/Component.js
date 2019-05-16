@@ -4,6 +4,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import Navbar from 'src/scripts/components/Navbar/Component';
 import Search from './Search/Component';
@@ -17,13 +18,25 @@ class App extends React.Component {
 
     return (
       <div>
-        <Switch>
-          <Route exact path="/app/search" component={Search} />
-          <Route exact path="/app/profile" component={Profile} />
-          <Route exact path="/app/messages" component={Messages} />
-          <Route exact path="/app/settings" component={Settings} />
-          <Redirect to="/app/search" />
-        </Switch>
+        <TransitionGroup className="transition-group">
+          <CSSTransition
+            appear
+            classNames="reveal"
+            key={location.key}
+            timeout={{ enter: 200, exit: 0 }}
+            unmountOnExit
+          >
+            <div className="transition-group">
+              <Switch>
+                <Route exact path="/app/search" component={Search} />
+                <Route exact path="/app/profile" component={Profile} />
+                <Route exact path="/app/messages" component={Messages} />
+                <Route exact path="/app/settings" component={Settings} />
+                <Redirect to="/app/search" />
+              </Switch>
+            </div>
+          </CSSTransition>
+        </TransitionGroup>
         <Navbar location={location} />
       </div>
     );
