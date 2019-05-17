@@ -1,4 +1,12 @@
 .messages_page {
+
+}
+
+.title {
   /* example */
-  width: 100%;
+  /* color: var(--black-color); */
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  font-weight: 600;
 }

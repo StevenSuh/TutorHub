@@ -10,6 +10,7 @@ import Navbar from 'src/scripts/components/Navbar/Component';
 import Search from './Search/Component';
 import Profile from './Profile/Component';
 import Messages from './Messages/Component';
+import MessageDetails from './Messages/MessageDetails/Component';
 import Settings from './Settings/Component';
 
 class App extends React.Component {
@@ -31,6 +32,7 @@ class App extends React.Component {
                 <Route exact path="/app/search" component={Search} />
                 <Route exact path="/app/profile" component={Profile} />
                 <Route exact path="/app/messages" component={Messages} />
+                <Route exact path="/app/messages/:id" component={MessageDetails} />
                 <Route exact path="/app/settings" component={Settings} />
                 <Redirect to="/app/search" />
               </Switch>
