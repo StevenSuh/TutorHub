@@ -2,6 +2,79 @@
     padding: 45px;
 }
 
+.back_button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back_button:active {
+    opacity: 0.5;
+}
+
+.back_text {
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 22px;
+}
+
+.sender {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    font-size: 20px;
+}
+
+.name.you {
+    text-align: right;
+}
+
 .name {
     font-weight: 600;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.message_text {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.text_form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+    position: fixed;
+    left: 50%;
+    bottom: 70px;
+    width: 100%;
+    max-width: 500px;
+    transform: translateX(-50%);
+    border-top: 1px solid var(--light-grey-color);
+}
+
+input::placeholder {
+    font-size: 16px;
+    color: var(--light-grey-color);
+}
+
+.text_active {
+    font-size: 16px;
+    border: none;
+    margin: 0;
+}
+
+.submit_button {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submit_button:active {
+    opacity: 0.5;
 }

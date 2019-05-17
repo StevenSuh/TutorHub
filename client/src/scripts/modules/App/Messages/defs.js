@@ -34,84 +34,96 @@ export const EXAMPLE_MESSAGES_LIST = [
 ];
 
 export const EXAMPLE_MESSAGE_THREADS = [
-    [
-        {
-            isYou: false,
-            from: 'Dwight',
-            timestamp: 'Wed May 15 2019 21:10:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Hi Stanley, I saw that you are offering tutoring services for ECON 161A?',
-        },
-        {
-            isYou: true,
-            from: 'Stanley',
-            timestamp: 'Wed May 15 2019 21:12:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Yes that is correct. My charge is $12/hr. I prefer to work remotely and am available MWF 12PM to 5PM.',
-        },
-        {
-            isYou: false,
-            from: 'Dwight',
-            timestamp: 'Wed May 15 2019 21:14:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Great!',
-        },
-    ],
-    [
-        {
-            isYou: false,
-            from: 'Oscar',
-            timestamp: 'Wed May 15 2019 21:10:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Hi Stanley, I saw that you are offering tutoring services for ECON 161A?',
-        },
-        {
-            isYou: true,
-            from: 'Stanley',
-            timestamp: 'Wed May 15 2019 21:12:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Yes that is correct. My charge is $12/hr. I prefer to work remotely and am available MWF 12PM to 5PM.',
-        },
-        {
-            isYou: false,
-            from: 'Oscar',
-            timestamp: 'Wed May 15 2019 21:14:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Great!',
-        },
-    ],
-    [
-        {
-            isYou: false,
-            from: 'Angela',
-            timestamp: 'Wed May 15 2019 21:10:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Hi Stanley, I saw that you are offering tutoring services for ECON 161A?',
-        },
-        {
-            isYou: true,
-            from: 'Stanley',
-            timestamp: 'Wed May 15 2019 21:12:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Yes that is correct. My charge is $12/hr. I prefer to work remotely and am available MWF 12PM to 5PM.',
-        },
-        {
-            isYou: false,
-            from: 'Angela',
-            timestamp: 'Wed May 15 2019 21:14:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Great!',
-        },
-    ],
-    [
-        {
-            isYou: false,
-            from: 'Pam',
-            timestamp: 'Wed May 15 2019 21:10:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Hi Stanley, I saw that you are offering tutoring services for ECON 161A?',
-        },
-        {
-            isYou: true,
-            from: 'Stanley',
-            timestamp: 'Wed May 15 2019 21:12:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Yes that is correct. My charge is $12/hr. I prefer to work remotely and am available MWF 12PM to 5PM.',
-        },
-        {
-            isYou: false,
-            from: 'Pam',
-            timestamp: 'Wed May 15 2019 21:14:46 GMT-0700 (Pacific Daylight Time)',
-            message: 'Great!',
-        },
-    ],
+    {
+        from: 'Dwight',
+        thread: [
+            {
+                isYou: false,
+                from: 'Dwight',
+                timestamp: 'Wed May 15 2019 21:10:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Hi Stanley, I saw that you are offering tutoring services for ECON 161A?',
+            },
+            {
+                isYou: true,
+                from: 'Stanley',
+                timestamp: 'Wed May 15 2019 21:12:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Yes that is correct. My charge is $12/hr. I prefer to work remotely and am available MWF 12PM to 5PM.',
+            },
+            {
+                isYou: false,
+                from: 'Dwight',
+                timestamp: 'Wed May 15 2019 21:14:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Great!',
+            },
+        ],
+    },
+    {
+        from: 'Oscar',
+        thread: [
+            {
+                isYou: false,
+                from: 'Oscar',
+                timestamp: 'Wed May 15 2019 21:10:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Hi Stanley, I saw that you are offering tutoring services for ECON 161A?',
+            },
+            {
+                isYou: true,
+                from: 'Stanley',
+                timestamp: 'Wed May 15 2019 21:12:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Yes that is correct. My charge is $12/hr. I prefer to work remotely and am available MWF 12PM to 5PM.',
+            },
+            {
+                isYou: false,
+                from: 'Oscar',
+                timestamp: 'Wed May 15 2019 21:14:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Great!',
+            },
+        ],
+    },
+    {
+        from: 'Angela',
+        thread: [
+            {
+                isYou: false,
+                from: 'Angela',
+                timestamp: 'Wed May 15 2019 21:10:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Hi Stanley, I saw that you are offering tutoring services for ECON 161A?',
+            },
+            {
+                isYou: true,
+                from: 'Stanley',
+                timestamp: 'Wed May 15 2019 21:12:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Yes that is correct. My charge is $12/hr. I prefer to work remotely and am available MWF 12PM to 5PM.',
+            },
+            {
+                isYou: false,
+                from: 'Angela',
+                timestamp: 'Wed May 15 2019 21:14:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Great!',
+            },
+        ],
+    },
+    {
+        from: 'Pam',
+        thread: [
+            {
+                isYou: false,
+                from: 'Pam',
+                timestamp: 'Wed May 15 2019 21:10:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Hi Stanley, I saw that you are offering tutoring services for ECON 161A?',
+            },
+            {
+                isYou: true,
+                from: 'Stanley',
+                timestamp: 'Wed May 15 2019 21:12:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Yes that is correct. My charge is $12/hr. I prefer to work remotely and am available MWF 12PM to 5PM.',
+            },
+            {
+                isYou: false,
+                from: 'Pam',
+                timestamp: 'Wed May 15 2019 21:14:46 GMT-0700 (Pacific Daylight Time)',
+                message: 'Great!',
+            },
+        ],
+    },
 ];
