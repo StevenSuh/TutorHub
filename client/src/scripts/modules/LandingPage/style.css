@@ -28,15 +28,18 @@
   position: relative;
   width: 255px;
   height: 60px;
+  margin: auto;
   margin-top: 15px;
-  left: calc(50% - 234px/2 - 1px);
+
   border-radius: 3px;
 }
 
 .bottom{
   position: relative;
   bottom: 0;
+
   margin-top: 100px;
+
 }
 
 .blue_back{
@@ -64,6 +67,26 @@
   font-family: Circular Pro;
   font-size: 20px;
   line-height: 25px;
+  background: none;
+}
+
+.create_acc{
+  font-family: Circular Pro;
+  font-size: 30px;
+  line-height: 38px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #6F82A5;
+}
+
+.description{
+  margin:auto;
+  margin-top:47px;
+  margin-bottom: -10px;
+  text-align: center;
+  width:80%;
 }
 
 .forgot{
@@ -81,6 +104,10 @@
 
 .grey_word{
   color: var(--light-grey-color)
+}
+
+.dark_grey_word{
+  color: var(--grey-color)
 }
 
 .back{
@@ -114,4 +141,13 @@ input{
   border: 0;
   width: 281px;
   border-bottom: 2px solid #A9A9A9;
+}
+
+.hover{
+  transition: color 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover:not(.active):active {
+  color: var(--blue-color);
 }

@@ -5,6 +5,9 @@ import style from './style.css?module';
 import { Link } from 'react-router-dom'
 import Signup from './Signup/Component';
 import Login from './Login/Component';
+import Password from './Password/Component';
+import App from '../App/Component';
+
 import {
   BrowserRouter as Router,
   Redirect,
@@ -24,13 +27,15 @@ class LandingPage extends React.Component {
 
   function Main() {
     return(
-      <main id='main'>
+
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/password" component={Password} />
+            <Route exact path="/app" component={App}/>
           </Switch>
-      </main>
+
     )
   }
 
@@ -40,16 +45,21 @@ class LandingPage extends React.Component {
         <p className='title'>TutorHub</p>
         <div className='spacer'>
 
+          <Link to="/signup">
             <div className ='button blue_back' >
-              <Link to="/signup" className = 'centered text white_word'>
+              <p className = 'centered text white_word'>
                 Sign Up
-              </Link>
+              </p>
             </div>
+          </Link>
+
+          <Link to="/login">
             <div className ='button grey_back' >
-              <Link to="/login" className = 'centered text black_word'>
+              <p className = 'centered text black_word'>
                 Log In
-              </Link>
+              </p>
             </div>
+          </Link>
 
         </div>
       </div>

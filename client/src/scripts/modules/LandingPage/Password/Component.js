@@ -2,34 +2,36 @@ import React from 'react';
 
 import style from '../style.css?module';
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import { ReactComponent as Back } from 'src/assets/icons/chevron-left.svg';
 
-class LoginComponent extends React.Component {
+
+class PasswordComponent extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        email: '',
+        confirm: '',
         password: '',
-        done: false
+        done:false
     };
 
-    this.handleEmail = this.handleEmail.bind(this);
+    this.handleConfirm = this.handleConfirm.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleEmail(event) {
-    this.setState({email: event.target.value});
   }
 
   handlePassword(event){
     this.setState({password: event.target.value});
   }
 
+  handleConfirm(event){
+    this.setState({confirm: event.target.value});
+  }
+
   handleSubmit(event){
     event.preventDefault();
-    if(this.state.email.length>0 && this.state.password.length>0){
+    if(this.state.confirm.length>0 && this.state.password.length>0){
       this.setState(
         {
           done:true
@@ -47,18 +49,17 @@ class LoginComponent extends React.Component {
 
     return (
       <div className={style.signup_page}>
+        <Link to="/signup">
+          <div>
+            <Back className='back' ></Back>
+            <p className='back_text' >BACK</p>
+            </div>
+        </Link>
 
-        <div>
-          <Back className='back' onClick={this.props.history.goBack}></Back>
-          <p className='back_text' onClick={this.props.history.goBack}>BACK</p>
-        </div>
-
-        <div className='spacer'> </div>
-
-        <form onSubmit={this.handleSubmit}>
-          <div className='textbox'>
-            <p className='text' >Email</p>
-            <input type="text" className='text' value={this.state.email} onChange={this.handleEmail}/>
+        <form  onSubmit={this.handleSubmit}>
+          <div className='description'>
+            <p className='create_acc'>Create A Password</p>
+            <p className='text dark_grey_word'>Enter and confirm your desired password</p>
           </div>
 
           <div className='textbox'>
@@ -66,21 +67,25 @@ class LoginComponent extends React.Component {
             <input type="text" className='text' value={this.state.password} onChange={this.handlePassword}/>
           </div>
 
-          <p className='forgot text grey_word'>Forgot your password?</p>
+          <div className='textbox'>
+            <p className='text' >Confirm Password</p>
+            <input type="text" className='text' value={this.state.confirm} onChange={this.handleConfirm}/>
+          </div>
 
 
-          <Login state={this.state}></Login>
+        
+          <Enter state={this.state}></Enter>
         </form>
-      </div>
 
+      </div>
     );
   }
 }
 
-function Login(props){
-  if(props.state.email.length>0 && props.state.password.length>0){
+function Enter(props){
+  if(props.state.password.length>0 && props.state.confirm.length>0){
+    console.log("here");
     return(
-
       <div className ='button blue_back bottom'>
         <button type="submit" className = 'centered text white_word'>
           Next
@@ -97,6 +102,5 @@ function Login(props){
       </button>
     </div>
   )
-
 }
-export default LoginComponent;
+export default PasswordComponent;
