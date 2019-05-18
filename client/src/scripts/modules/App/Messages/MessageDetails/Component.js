@@ -45,7 +45,12 @@ class MessagesComponent extends React.Component {
             })}>
               {message.from}
             </div>
-            <div className={style.message_text}>{message.message}</div>
+            <div className={classNames({
+              [style.message_text]: true,
+              [style.you]: message.isYou,
+            })}>
+              {message.message}
+            </div>
           </div>
         ))}
       
