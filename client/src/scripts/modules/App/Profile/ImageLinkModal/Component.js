@@ -7,47 +7,47 @@ import Modal from 'src/scripts/components/Modal/Component';
 import { ReactComponent as CloseIcon } from 'src/assets/icons/plus_icon.svg';
 import style from './style.module.css';
 
-class SubjectModal extends React.Component {
+class ImageLinkModal extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: '',
-      description: '',
+      link: this.props.link,
     };
 
     this.onDone = this.onDone.bind(this);
     this.onClose = this.onClose.bind(this);
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onDescChange = this.onDescChange.bind(this);
+    this.onUrlChange = this.onUrlChange.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.link !== this.props.link) {
+      this.setState({ link: this.props.link });
+    }
   }
 
   onDone() {
-    const { title, description } = this.state;
+    const { link } = this.state;
+    const result = {};
 
-    this.props.onSubmit({
-      title,
-      description,
-    });
+    if (this.props.type === 'picture') {
+      result.photoUrl = link;
+    } else {
+      result.transcriptUrl = link;
+    }
+
+    this.props.onSubmit(result);
     this.onClose();
   }
 
   onClose() {
-    this.setState({
-      title: '',
-      description: '',
-    });
+    this.setState({ link: '' });
     this.props.onClose();
   }
 
-  onTitleChange({ target }) {
+  onUrlChange({ target }) {
     const { value } = target;
-    this.setState({ ...this.state, title: value });
-  }
-
-  onDescChange({ target }) {
-    const { value } = target;
-    this.setState({ ...this.state, description: value });
+    this.setState({ ...this.state, link: value });
   }
 
   render() {
@@ -61,26 +61,13 @@ class SubjectModal extends React.Component {
             onClick={this.onClose}
           />
           <h2 className={style.header}>
-            Tutor New Subject
+            {this.props.type === 'picture' ? 'Change Profile Photo' : 'Change Transcripts'}
           </h2>
-          <h4 className={style.input_header}>
-            Title
-          </h4>
           <input
-            className={style.input_form}
-            placeholder="Subject Title"
-            onChange={this.onTitleChange}
-            value={this.state.title}
-          />
-          <h4 className={style.input_header}>
-            Description
-          </h4>
-          <textarea
-            className={style.input_form}
-            rows="3"
-            placeholder="Subject Description"
-            onChange={this.onDescChange}
-            value={this.state.description}
+            className={style.feedback_form}
+            placeholder={this.props.type === 'picture' ? 'Photo URL' : 'Transcripts URL'}
+            onChange={this.onUrlChange}
+            value={this.state.link}
           />
           <div className={style.button_wrapper}>
             <button
@@ -102,10 +89,16 @@ class SubjectModal extends React.Component {
   }
 }
 
-SubjectModal.propTypes = {
+ImageLinkModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
+  link: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
-export default SubjectModal;
+ImageLinkModal.defaultProps = {
+  link: '',
+};
+
+export default ImageLinkModal;

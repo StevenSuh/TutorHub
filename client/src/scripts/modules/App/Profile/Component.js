@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
-import ProfileEdit from './ProfileEdit/Component';
 import ReviewModal from './ReviewModal/Component';
 
 import { ReactComponent as PlusIcon } from 'src/assets/icons/plus_icon.svg';
@@ -16,11 +15,13 @@ class ProfileComponent extends React.Component {
   constructor(props) {
     super(props);
 
+    const profile = this.props.location.profile || this.props.profile;
+    const reviews = this.props.location.reviews || this.props.reviews;
+
     this.state = {
-      isEditing: false,
       isReviewing: false,
-      profile: this.props.profile,
-      reviews: this.props.reviews,
+      profile,
+      reviews,
     };
 
     this.addReview = this.addReview.bind(this);
@@ -29,8 +30,6 @@ class ProfileComponent extends React.Component {
     this.requestTutor = this.requestTutor.bind(this);
     this.viewTranscripts = this.viewTranscripts.bind(this);
     this.closeReview = this.closeReview.bind(this);
-    this.closeEdit = this.closeEdit.bind(this);
-    this.modifyProfile = this.modifyProfile.bind(this);
   }
 
   calculateAvgReview(reviews) {
@@ -102,7 +101,7 @@ class ProfileComponent extends React.Component {
   }
 
   editProfile() {
-    this.setState({ ...this.state, isEditing: true });
+    this.props.history.push('/app/profile/edit');
   }
 
   requestTutor() {
@@ -118,32 +117,13 @@ class ProfileComponent extends React.Component {
     this.setState({ ...this.state, isReviewing: false });
   }
 
-  closeEdit() {
-    this.setState({ ...this.state, isEditing: false });
-  }
-
-  modifyProfile(profile) {
-    this.setState({ ...this.state, profile });
-  }
-
   render() {
     const { isTutor } = this.props;
     const {
-      isEditing,
       isReviewing,
       profile,
       reviews,
     } = this.state;
-
-    if (isEditing) {
-      return (
-        <ProfileEdit
-          onClose={this.closeEdit}
-          onModifyProfile={this.modifyProfile}
-          profile={profile}
-        />
-      );
-    }
 
     return (
       <div className={classNames(style.profile_page)}>
@@ -154,7 +134,7 @@ class ProfileComponent extends React.Component {
         />
 
         <div className={classNames(style.person_wrapper)}>
-          <img className={style.picture} src={profile.photoUrl} alt="profile" />
+          <img className={style.picture} src={profile.photoUrl || defs.DEFAULT_IMAGE} alt="profile" />
           <div className={style.person_info}>
             <h3 className={style.name}>
               {profile.name}
@@ -239,7 +219,7 @@ ProfileComponent.propTypes = {
 };
 
 ProfileComponent.defaultProps = {
-  isTutor: true,
+  isTutor: false,
   profile: defs.EXAMPLE_PROFILE,
   reviews: defs.EXAMPLE_REVIEWS,
 };

@@ -5,6 +5,39 @@
   padding: 40px;
 }
 
+.back_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 33px;
+  left: -15px;
+  width: calc(100% + 30px);
+}
+
+.back_wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back_wrapper:active {
+  opacity: 0.5;
+}
+
+.back_text {
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 22px;
+}
+
+.done_text {
+  color: var(--blue-color);
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .picture {
   display: block;
   object-fit: cover;
@@ -16,17 +49,18 @@
 
 .change_picture {
   color: var(--blue-color);
+  cursor: pointer;
   display: block;
   font-size: 16px;
   margin: auto;
-  margin-top: 12px;
-  margin-bottom: 19px;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 hr {
   position: absolute;
   left: 0;
-  width: 100vw;
+  width: 100%;
   opacity: 0.5;
 }
 
@@ -43,30 +77,40 @@ hr {
   margin-right: 31px;
 }
 
-.bio_icon {
-  width: 15px;
+.bio_icon,
+.subject_icon {
+  width: 20px;
   height: 15px;
-  margin-top: 5px;
+  margin-top: 3px;
   margin-right: 9px;
 }
 
-.bio_icon > * {
+.bio_icon > *,
+.subject_icon > * {
   stroke: var(--grey-color);
   transition: stroke 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.bio_icon.active > * {
+.bio_icon.active > *,
+.subject_icon.active > * {
   stroke: var(--black-color);
 }
 
 .bio {
   border: none;
+  color: var(--grey-color);
   font-size: 14px;
   resize: none;
+  width: 100%;
+  transition: color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bio.active {
+  color: var(--black-color);
 }
 
 .bio::placeholder {
-  color: var(--lighter-grey-color);
+  color: var(--light-grey-color);
 }
 
 .subject_wrapper {
@@ -80,30 +124,152 @@ hr {
 }
 
 .subject_item {
-
+  margin-bottom: 20px;
 }
 
 .subject_item_header_wrapper {
-
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .subject_item_header {
-
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .subject_delete {
-
+  cursor: pointer;
+  color: #EF7979;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .subject_item_desc_wrapper {
-
-}
-
-.subject_edit {
-
+  display: flex;
+  align-items: flex-start;
 }
 
 .subject_item_desc {
-
+  border: none;
+  color: var(--grey-color);
+  font-size: 14px;
+  resize: none;
+  width: 100%;
+  transition: color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.subject_item_desc.active {
+  color: var(--black-color);
+}
+
+.subject_item_desc::placeholder {
+  color: var(--light-grey-color);
+}
+
+.new_course {
+  background-color: var(--blue-color);
+  color: var(--white-color) !important;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 12px;
+  text-align: center;
+  width: 80%;
+}
+
+.edit_transcript {
+  background-color: var(--white-color);
+  color: var(--blue-color) !important;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  margin: auto;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.no_subject {
+  color: var(--grey-color);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.avail_wrapper {
+  padding-top: 30px;
+}
+
+.custom_radio {
+  width: calc(100% - 34px);
+}
+
+.input_form {
+  border: 1px solid var(--lighter-grey-color);
+  font-size: 14px;
+  resize: none;
+  padding: 12px;
+  width: 100%;
+  transition: border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input_form::placeholder {
+  color: var(--lighter-grey-color);
+  font-size: 14px;
+}
+
+.input_form:focus {
+  border-color: var(--grey-color);
+}
+
+.radio_wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+}
+
+.radio_span {
+  background-color: var(--white-color);
+  border-radius: 16px;
+  width: 14px;
+  height: 14px;
+  margin-right: 20px;
+  margin-top: 3px;
+  transition: background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.radio_span::before {
+  content: '';
+  border: 1.5px solid var(--light-grey-color);
+  border-radius: 18px;
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  width: 19px;
+  height: 19px;
+  transition: border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.radio_span.active {
+  background-color: var(--blue-color);
+}
+
+.radio_span.active::before {
+  border-color: var(--blue-color);
+}
+
+.label {
+  color: var(--light-grey-color);
+  display: block;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.label.active {
+  color: var(--black-color);
+}

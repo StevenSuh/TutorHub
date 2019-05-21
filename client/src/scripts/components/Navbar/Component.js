@@ -15,44 +15,44 @@ const Navbar = ({ location }) => {
   return (
     <div className={style.navbar}>
       <Link
-        className={classNames(
-          style.item,
-          style.hover,
-          pathname === '/app/search' && style.active,
-        )}
+        className={classNames({
+          [style.item]: true,
+          [style.hover]: true,
+          [style.active]: pathname === '/app/search',
+        })}
         to='/app/search'
       >
         <SearchIcon className={style.item_icon} />
         <p>Search</p>
       </Link>
       <Link
-        className={classNames(
-          style.item,
-          style.hover,
-          pathname === '/app/profile' && style.active,
-        )}
+        className={classNames({
+          [style.item]: true,
+          [style.hover]: true,
+          [style.active]: pathname.startsWith('/app/profile'),
+        })}
         to='/app/profile'
       >
         <ProfileIcon className={style.item_icon} />
         <p>Profile</p>
       </Link>
       <Link
-        className={classNames(
-          style.item,
-          style.hover,
-          pathname === '/app/messages' && style.active,
-        )}
+        className={classNames({
+          [style.item]: true,
+          [style.hover]: true,
+          [style.active]: pathname.startsWith('/app/messages'),
+        })}
         to='/app/messages'
       >
         <MessagesIcon className={style.item_icon} />
         <p>Messages</p>
       </Link>
       <Link
-        className={classNames(
-          style.item,
-          style.hover,
-          pathname === '/app/settings' && style.active,
-        )}
+        className={classNames({
+          [style.item]: true,
+          [style.hover]: true,
+          [style.active]: pathname === '/app/settings',
+        })}
         to='/app/settings'
       >
         <SettingsIcon className={style.item_icon} />

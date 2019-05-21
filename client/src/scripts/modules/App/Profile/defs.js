@@ -1,4 +1,4 @@
-export const EXAMPLE_PROFILE = {
+export let EXAMPLE_PROFILE = {
   name: 'Stanley',
   bio: 'Econ major, fourth year. Love to teach! People think I\'m funny',
   photoUrl: 'https://vignette.wikia.nocookie.net/theoffice/images/2/23/Stanley_Hudson.jpg/revision/latest/scale-to-width-down/700?cb=20170701085445',
@@ -10,7 +10,9 @@ export const EXAMPLE_PROFILE = {
   availability: 'Monday — 12PM to 6PM\nWednesday — 10AM to 12PM\nFriday — 5PM to 9PM',
 };
 
-export const EXAMPLE_REVIEWS = [
+export const DEFAULT_IMAGE = 'https://scontent-sjc3-1.xx.fbcdn.net/v/t31.0-1/c379.0.1290.1290a/10506738_10150004552801856_220367501106153455_o.jpg?_nc_cat=1&_nc_ht=scontent-sjc3-1.xx&oh=061780d83fadeef020326151357acfbc&oe=5D5FE949';
+
+export let EXAMPLE_REVIEWS = [
   {
     rating: 5,
     date: '2/8/19',
