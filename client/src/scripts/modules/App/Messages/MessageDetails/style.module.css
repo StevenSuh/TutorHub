@@ -1,5 +1,5 @@
 .messages_page {
-    padding: 45px;
+    height: calc(100vh - 70px);
 }
 
 .back_button {
@@ -45,21 +45,28 @@
 }
 
 .message_text.you {
-    margin-left: 40px;
+    margin-left: auto;
     margin-right: 0;
+    width: max-content;
+    max-width: calc(100% - 40px);
+    overflow-wrap: break-word;
+}
+
+.chat_wrapper {
+    padding: 45px;
+    overflow-y: auto;
+    height: calc(100% - 63px);
 }
 
 .text_form {
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 25px;
-    position: fixed;
-    left: 50%;
-    bottom: 70px;
+    height: 63px;
     width: 100%;
     max-width: 500px;
-    transform: translateX(-50%);
     border-top: 1px solid var(--light-grey-color);
 }
 
@@ -72,6 +79,7 @@ input::placeholder {
     font-size: 16px;
     border: none;
     margin: 0;
+    width: 100%;
 }
 
 .submit_button {
