@@ -107,6 +107,7 @@ textarea {
 }
 
 button {
+  background: none;
   color: var(--black-color);
   font-family: 'Circular Pro', Helvetica, sans-serif;
   border: none;

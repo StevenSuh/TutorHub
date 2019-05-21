@@ -1,11 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 import classNames from 'classnames';
 
 import style from './style.module.css';
 import * as defs from '../defs';
 
 import { ReactComponent as ChevronLeft } from 'src/assets/icons/chevron-left.svg';
-
 
 class MessagesComponent extends React.Component {
   constructor(props) {
@@ -61,6 +61,7 @@ class MessagesComponent extends React.Component {
 
     const msgItem = defs.EXAMPLE_MESSAGES_LIST.find(item => item.id === this.state.id);
     msgItem.lastMessage = 'You: ' + input.value;
+    msgItem.date = moment().format('M/DD/YY');
 
     input.value = '';
 
@@ -151,6 +152,7 @@ class MessagesComponent extends React.Component {
             onKeyUp={this.onInputKeyUp}
             id="send_input"
             type="text"
+            autoComplete="off"
             placeholder="Type a message..."
           />
           <div className={style.submit_button} onClick={this.onClickSend}>

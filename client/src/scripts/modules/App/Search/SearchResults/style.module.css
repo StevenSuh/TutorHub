@@ -1,0 +1,6 @@
+.search_results_page {
+  height: calc(100vh - 70px);
+  width: 100%;
+  overflow-y: auto;
+  padding: 40px;
+}
