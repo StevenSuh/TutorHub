@@ -10,16 +10,21 @@ import { ReactComponent as StarIcon } from 'src/assets/icons/star.svg';
 import { ReactComponent as StarGreyIcon } from 'src/assets/icons/star_grey.svg';
 import style from './style.module.css';
 import * as defs from './defs';
+import * as msgDefs from '../Messages/defs';
 
 class ProfileComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    const profile = this.props.location.profile || this.props.profile;
-    const reviews = this.props.location.reviews || this.props.reviews;
+    this.props.location.state = this.props.location.state || {};
+
+    const isTutor = this.props.location.state.isTutor || this.props.isTutor;
+    const profile = this.props.location.state.profile || this.props.profile;
+    const reviews = this.props.location.state.reviews || this.props.reviews;
 
     this.state = {
       isReviewing: false,
+      isTutor,
       profile,
       reviews,
     };
@@ -106,6 +111,25 @@ class ProfileComponent extends React.Component {
 
   requestTutor() {
     // should add a new message thread
+    const id = msgDefs.EXAMPLE_MESSAGES_LIST[msgDefs.EXAMPLE_MESSAGES_LIST.length - 1].id + 1;
+
+    const msgList = {
+      id,
+      isNew: true,
+      from: this.state.profile.name,
+      fromPhotoUrl: this.state.profile.photoUrl,
+      date: moment().format('M/DD/YY'),
+      lastMessage: `Send a message ${this.state.profile.name} to what you’re looking for in a tutor.`,
+    };
+    msgDefs.EXAMPLE_MESSAGES_LIST.splice(0, 0, msgList);
+
+    const msgThread = {
+      id,
+      from: this.state.profile.name,
+      thread: [],
+    };
+    msgDefs.EXAMPLE_MESSAGE_THREADS.splice(0, 0, msgThread);
+
     this.props.history.push('/app/messages');
   }
 
@@ -118,9 +142,9 @@ class ProfileComponent extends React.Component {
   }
 
   render() {
-    const { isTutor } = this.props;
     const {
       isReviewing,
+      isTutor,
       profile,
       reviews,
     } = this.state;
@@ -219,7 +243,7 @@ ProfileComponent.propTypes = {
 };
 
 ProfileComponent.defaultProps = {
-  isTutor: false,
+  isTutor: true,
   profile: defs.EXAMPLE_PROFILE,
   reviews: defs.EXAMPLE_REVIEWS,
 };

@@ -18,7 +18,7 @@ const Navbar = ({ location }) => {
         className={classNames({
           [style.item]: true,
           [style.hover]: true,
-          [style.active]: pathname === '/app/search',
+          [style.active]: pathname.startsWith('/app/search'),
         })}
         to='/app/search'
       >

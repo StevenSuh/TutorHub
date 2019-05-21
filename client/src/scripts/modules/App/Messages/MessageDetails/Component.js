@@ -12,12 +12,26 @@ class MessagesComponent extends React.Component {
     super(props);
 
     const id = parseInt(this.props.match.params.id, 10);
-    const item = defs.EXAMPLE_MESSAGE_THREADS[id];
+    const item = defs.EXAMPLE_MESSAGE_THREADS.find(item => item.id === id);
+    const msgItem = defs.EXAMPLE_MESSAGES_LIST.find(item => item.id === id);
 
-    this.state = {
-      from: item.from,
-      thread: item.thread,
-    };
+    if (item && msgItem) {
+      msgItem.isNew = false;
+
+      this.state = {
+        id: item.id,
+        isTalkingToTutor: item.isTalkingToTutor,
+        from: item.from,
+        thread: item.thread,
+      };
+    } else {
+      this.state = {
+        id: null,
+        isTalkingToTutor: null,
+        from: null,
+        thread: [],
+      };
+    }
 
     this.chatWrapper = React.createRef();
     this.onClickSend = this.onClickSend.bind(this);
@@ -45,6 +59,9 @@ class MessagesComponent extends React.Component {
       thread: newThread,
     });
 
+    const msgItem = defs.EXAMPLE_MESSAGES_LIST.find(item => item.id === this.state.id);
+    msgItem.lastMessage = 'You: ' + input.value;
+
     input.value = '';
 
     setTimeout(() => {
@@ -64,16 +81,54 @@ class MessagesComponent extends React.Component {
 
   componentDidMount() {
     const id = parseInt(this.props.match.params.id, 10);
-    const messages = defs.EXAMPLE_MESSAGE_THREADS;
+    const index = defs.EXAMPLE_MESSAGE_THREADS.findIndex(item => item.id === id);
 
-    if (id < 0 || id >= messages.length) {
+    if (index === -1) {
       this.props.history.push('/app/messages');
     }
   }
 
+  getMessageThreadItems() {
+    const thread = this.state.thread;
+
+    const items = thread.map((message, index) => (
+      <div key={index}>
+        <div className={classNames({
+          [style.name]: true,
+          [style.you]: message.isYou,
+        })}>
+          {message.from}
+        </div>
+        <div className={classNames({
+          [style.message_text]: true,
+          [style.you]: message.isYou,
+        })}>
+          {message.message}
+        </div>
+      </div>
+    ));
+
+    if (items.length === 0) {
+      if (this.state.isTalkingToTutor) {
+        items.push(
+          <h4 className={style.no_msg} key={0}>
+            {`Send a message ${this.state.from} to what you’re looking for in a tutor.`}
+          </h4>
+        );
+      } else {
+        items.push(
+          <h4 className={style.no_msg} key={0}>
+            {`Send a message to ask ${this.state.from} looking for in a tutor.`}
+          </h4>
+        );
+      }
+    }
+
+    return items;
+  }
+
   render() {
     const from = this.state.from;
-    const thread = this.state.thread;
 
     return (
       <div className={style.messages_page}>
@@ -87,22 +142,7 @@ class MessagesComponent extends React.Component {
             <div className={style.back_text}>Back</div>
           </div>
           <div className={style.sender}>{from}</div>
-          {thread.map((message, index) => (
-            <div key={index}>
-              <div className={classNames({
-                [style.name]: true,
-                [style.you]: message.isYou,
-              })}>
-                {message.from}
-              </div>
-              <div className={classNames({
-                [style.message_text]: true,
-                [style.you]: message.isYou,
-              })}>
-                {message.message}
-              </div>
-            </div>
-          ))}
+          {this.getMessageThreadItems()}
         </div>
       
         <div className={style.text_form}>

@@ -31,6 +31,7 @@ class App extends React.Component {
             <div className="transition-group">
               <Switch>
                 <Route exact path="/app/search" component={Search} />
+                <Route exact path="/app/search/profile" component={Profile} />
                 <Route exact path="/app/profile" component={Profile} />
                 <Route exact path="/app/profile/edit" component={ProfileEdit} />
                 <Route exact path="/app/messages" component={Messages} />

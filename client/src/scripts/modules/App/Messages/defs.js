@@ -33,9 +33,13 @@ export const EXAMPLE_MESSAGES_LIST = [
     },
 ];
 
+export const DEFAULT_IMAGE = 'https://scontent-sjc3-1.xx.fbcdn.net/v/t31.0-1/c379.0.1290.1290a/10506738_10150004552801856_220367501106153455_o.jpg?_nc_cat=1&_nc_ht=scontent-sjc3-1.xx&oh=061780d83fadeef020326151357acfbc&oe=5D5FE949';
+
 export const EXAMPLE_MESSAGE_THREADS = [
     {
+        id: 1,
         from: 'Dwight',
+        isTalkingToTutor: false,
         thread: [
             {
                 isYou: false,
@@ -58,7 +62,9 @@ export const EXAMPLE_MESSAGE_THREADS = [
         ],
     },
     {
+        id: 2,
         from: 'Oscar',
+        isTalkingToTutor: false,
         thread: [
             {
                 isYou: false,
@@ -81,7 +87,9 @@ export const EXAMPLE_MESSAGE_THREADS = [
         ],
     },
     {
+        id: 3,
         from: 'Angela',
+        isTalkingToTutor: false,
         thread: [
             {
                 isYou: false,
@@ -104,7 +112,9 @@ export const EXAMPLE_MESSAGE_THREADS = [
         ],
     },
     {
+        id: 4,
         from: 'Pam',
+        isTalkingToTutor: false,
         thread: [
             {
                 isYou: false,

@@ -92,3 +92,10 @@ input::placeholder {
 .submit_button:active {
     opacity: 0.5;
 }
+
+.no_msg {
+    color: var(--grey-color);
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+}

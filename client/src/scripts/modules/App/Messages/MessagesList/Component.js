@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import MessageDetails from '../MessageDetails/Component';
-
 import style from './style.module.css';
 import * as defs from '../defs';
 
@@ -22,10 +20,10 @@ class MessagesComponent extends React.Component {
               [style.message_container]: true,
               [style.seen]: message.isNew,
             })}
-            onClick={() => this.onClickMessageItem(index)}
+            onClick={() => this.onClickMessageItem(message.id)}
             key={index}
           >
-            <img className={style.image} src={message.fromPhotoUrl} />
+            <img className={style.image} src={message.fromPhotoUrl || defs.DEFAULT_IMAGE} alt="profile" />
             <div className={style.text_container}>
               <div className={style.name_date}>
                 <div className={style.name}>
