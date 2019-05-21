@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import style from '../style.css?module';
 import { Link } from 'react-router-dom'
@@ -48,18 +49,22 @@ class PasswordComponent extends React.Component {
     }
 
     return (
-      <div className={style.signup_page}>
+      <div className={classNames(style.signup_page, 'landing_page_padding')}>
+
         <Link to="/signup">
-          <div>
-            <Back className='back' ></Back>
-            <p className='back_text' >BACK</p>
-            </div>
+          <div className='back_container'>
+            <Back className='back'></Back>
+            <p className='back_text'>Back</p>
+          </div>
         </Link>
+
 
         <form  onSubmit={this.handleSubmit}>
           <div className='description'>
             <p className='create_acc'>Create A Password</p>
-            <p className='text dark_grey_word'>Enter and confirm your desired password</p>
+            <p className='text dark_grey_word'>
+            <div className='hint'>Enter and confirm your desired password</div>
+            </p>
           </div>
 
           <div className='textbox'>
@@ -87,7 +92,7 @@ function Enter(props){
     console.log("here");
     return(
       <div className ='button blue_back bottom'>
-        <button type="submit" className = 'centered text white_word'>
+        <button type="submit" className = 'centered text white_word next_button'>
           Next
         </button>
       </div>
@@ -97,7 +102,7 @@ function Enter(props){
 
   return(
     <div className ='button grey_back bottom' onClick={props.handleSubmit}>
-      <button className = 'centered text black_word'>
+      <button className = 'centered text black_word next_button'>
         Next
       </button>
     </div>

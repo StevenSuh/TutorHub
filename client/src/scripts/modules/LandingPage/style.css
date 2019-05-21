@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.landing_page_padding {
+  padding: 45px;
+}
+
 .title {
   position: relative;
   width: 234px;
@@ -14,6 +18,8 @@
   font-size: 50px;
   line-height: 63px;
   text-align: center;
+
+  font-weight: 800;
 
   color: #6F82A5;
 
@@ -30,8 +36,14 @@
   height: 60px;
   margin: auto;
   margin-top: 15px;
+  cursor: pointer;
 
   border-radius: 3px;
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:active {
+  opacity: 0.5;
 }
 
 .bottom{
@@ -47,11 +59,11 @@
 }
 
 .grey_back{
-  background: var(--light-grey-color)
+  background: var(--light-blue-color);
 }
 
 .centered{
-  position: relative;
+  /* position: relative;
   top: 28.33%;
   bottom: 30%;
   left: 36.08%;
@@ -60,7 +72,9 @@
 
 
   align: center;
-  vertical-align: middle;
+  vertical-align: middle; */
+  text-align: center;
+  padding: 17px;
 }
 
 .text{
@@ -70,15 +84,26 @@
   background: none;
 }
 
+.hint {
+  margin-top: 10px;
+}
+
+.next_button {
+  width: 100%;
+  cursor: pointer;
+}
+
 .create_acc{
   font-family: Circular Pro;
   font-size: 30px;
   line-height: 38px;
+  font-weight: 600;
   /* identical to box height */
 
   text-align: center;
 
-  color: #6F82A5;
+  /* color: #6F82A5; */
+  color: var(--blue-color);
 }
 
 .description{
@@ -86,7 +111,7 @@
   margin-top:47px;
   margin-bottom: -10px;
   text-align: center;
-  width:80%;
+  width:100%;
 }
 
 .forgot{
@@ -110,16 +135,27 @@
   color: var(--grey-color)
 }
 
+.back_container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back_container:active {
+  opacity: 0.5;
+}
+
 .back{
-  position: relative;
+  /* position: relative;
   width: 23px;
   height: 23px;
   left: 24px;
-  top: 28px;
+  top: 28px; */
 }
 
 .back_text{
-  position: relative;
+  /* position: relative;
   width: 55px;
   height: 25px;
   left: 64px;
@@ -127,7 +163,10 @@
   text-align: center;
   text-transform: uppercase;
 
-  color: #616161;
+  color: #616161; */
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 22px;
 }
 
 .textbox{

@@ -48,9 +48,13 @@ class LoginComponent extends React.Component {
     return (
       <div className={style.signup_page}>
 
-        <div>
-          <Back className='back' onClick={this.props.history.goBack}></Back>
-          <p className='back_text' onClick={this.props.history.goBack}>BACK</p>
+        <div className='landing_page_padding'>
+          <div>
+            <div className='back_container'>
+              <Back className='back' onClick={this.props.history.goBack}></Back>
+              <p className='back_text' onClick={this.props.history.goBack}>Back</p>
+            </div>
+          </div>
         </div>
 
         <div className='spacer'> </div>
@@ -82,7 +86,7 @@ function Login(props){
     return(
 
       <div className ='button blue_back bottom'>
-        <button type="submit" className = 'centered text white_word'>
+        <button type="submit" className = 'centered text white_word next_button'>
           Next
         </button>
       </div>
@@ -92,7 +96,7 @@ function Login(props){
 
   return(
     <div className ='button grey_back bottom' onClick={props.handleSubmit}>
-      <button className = 'centered text black_word'>
+      <button className = 'centered text black_word next_button'>
         Next
       </button>
     </div>

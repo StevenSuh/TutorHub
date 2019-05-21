@@ -46,15 +46,20 @@ class SignupComponent extends React.Component {
       return <Redirect to='/password'/>
     }
     return (
-      <div className={style.signup_page}>
+      // <div className={style.signup_page}>
+      <div className='landing_page_padding'>
         <div>
-          <Back className='back' onClick={this.props.history.goBack}></Back>
-          <p className='back_text' onClick={this.props.history.goBack}>BACK</p>
+          <div className='back_container'>
+            <Back className='back' onClick={this.props.history.goBack}></Back>
+            <p className='back_text' onClick={this.props.history.goBack}>Back</p>
+          </div>
         </div>
 
         <div className='description'>
           <p className='create_acc'>Create Your Account</p>
-          <p className='text dark_grey_word'>Enter your full name and email</p>
+          <p className='text dark_grey_word'>
+            <div className='hint'>Enter your full name and email</div>
+          </p>
         </div>
 
         <form onSubmit={this.handleSubmit}>
@@ -88,7 +93,7 @@ function Signup(props){
     return(
       <Link to="/password">
       <div className ='button blue_back bottom'>
-        <button className = 'centered text white_word'>
+        <button className = 'centered text white_word next_button'>
           Next
         </button>
       </div>
@@ -97,11 +102,13 @@ function Signup(props){
   }
 
   return(
+
     <div className ='button grey_back bottom' onClick={props.handleSubmit}>
-      <button className = 'centered text black_word'>
+      <button className = 'centered text black_word next_button'>
         Next
       </button>
     </div>
+
   )
 
 }
