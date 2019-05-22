@@ -2,3 +2,156 @@
   /* example */
   width: 100%;
 }
+
+.modal{
+  position: relative;
+  width: 281px;
+  height: 299px;
+
+  background: #FFFFFF;
+  border-radius: 3px;
+}
+
+.close{
+  position: relative;
+  width: 24px;
+  height: 24px;
+  float: right;
+  margin: 10px;
+  transform: rotate(-45deg);
+}
+.content{
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  pointer-events: none;
+}
+.welcome{
+  position: relative;
+  width: 140px;
+  height: 38px;
+
+
+  font-family: Circular Pro;
+  font-size: 30px;
+  line-height: 38px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #616161;
+}
+
+.description{
+  font-family: Circular Pro;
+  font-size: 20px;
+  line-height: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #616161;
+}
+
+.blue_back{
+  color: #FFFFFF;
+  background: var(--blue-color);
+}
+
+.white_back{
+  color: var(--blue-color);
+  background: var(--white-color);
+}
+.title{
+  position: relative;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top:96px;
+  height: 38px;
+
+
+  font-family: Circular Pro;
+  font-size: 30px;
+  line-height: 38px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #6F82A5;
+}
+.modal_button{
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+  font-family: Circular Pro;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+
+  border: 2px solid #6F82A5;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.search_container{
+  display: flex;
+  flex: 1 1 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+
+  width: 258px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+
+  font-family: Circular Pro;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-align: center;
+}
+
+.search_bar {
+  border: 0;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  flex: 1;
+  margin-top:0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icon{
+  padding: 0.2rem;
+  margin-top: .2rem;
+  color:#A9A9A9;
+}
+::placeholder{
+  font-family: Circular Pro;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-align: center;
+  color: var(--grey-color)
+}
+
+.text_form {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+    height: 63px;
+    width: 100%;
+    max-width: 500px;
+    border-top: 1px solid var(--light-grey-color);
+}
+
+button{
+  pointer-events: auto;
+}
