@@ -69,16 +69,16 @@ class PasswordComponent extends React.Component {
 
           <div className='textbox'>
             <p className='text' >Password</p>
-            <input type="text" className='text' value={this.state.password} onChange={this.handlePassword}/>
+            <input type="password" className='text' value={this.state.password} onChange={this.handlePassword}/>
           </div>
 
           <div className='textbox'>
             <p className='text' >Confirm Password</p>
-            <input type="text" className='text' value={this.state.confirm} onChange={this.handleConfirm}/>
+            <input type="password" className='text' value={this.state.confirm} onChange={this.handleConfirm}/>
           </div>
 
 
-        
+
           <Enter state={this.state}></Enter>
         </form>
 
