@@ -67,7 +67,7 @@ class LoginComponent extends React.Component {
 
           <div className='textbox'>
             <p className='text' >Password</p>
-            <input type="text" className='text' value={this.state.password} onChange={this.handlePassword}/>
+            <input type="Password" className='text' value={this.state.password} onChange={this.handlePassword}/>
           </div>
 
           <p className='forgot text grey_word'>Forgot your password?</p>

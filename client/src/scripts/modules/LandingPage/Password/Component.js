@@ -39,6 +39,7 @@ class PasswordComponent extends React.Component {
         }
       );
     }
+
     //this.forceUpdate();
     //window.location.reload();
   }
