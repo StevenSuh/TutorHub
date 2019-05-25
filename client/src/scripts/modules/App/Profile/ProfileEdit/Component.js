@@ -338,7 +338,7 @@ ProfileEditComponent.propTypes = {
 };
 
 ProfileEditComponent.defaultProps = {
-  profile: defs.EXAMPLE_PROFILE,
+  profile: defs.CURRENT_PROFILE,
 };
 
 export default ProfileEditComponent;

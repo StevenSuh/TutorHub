@@ -2,18 +2,22 @@ import React from 'react';
 import Modal from './../../../components/Modal/Component.js'
 import style from './style.module.css';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import {ReactComponent as Close} from './../../../../assets/icons/plus_icon.svg'
 import {ReactComponent as SearchIcon} from './../../../../assets/icons/search_icon.svg'
 import {ReactComponent as DropDown} from './../../../../assets/icons/chevron-leftDownArrow.svg'
 class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
+    
     this.props.location.state = this.props.location.state || {};
-    const open = this.props.location.state.open || this.props.open;
+    
+    const newUser = this.props.location.state.newUser || this.props.newUser;
 
-    console.log(this.props.location);
+
+    console.log(this.props);
     this.state = {
-        open: true
+      open: newUser,
     };
 
     this.toggleModal = this.toggleModal.bind(this);
@@ -22,16 +26,20 @@ class SearchComponent extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
-    this.props.history.push('/app/search/results')
+
+    const query = event.target[0].value;
+
+    if (query) {
+      this.props.history.push('/app/search/results', { query });
+    }
   }
 
-  toggleModal(event){
-      this.setState({
-          open:!this.state.open
-      });
-      this.props.location.state.open = this.state.open;
+  toggleModal(){
+    this.setState({
+      open:!this.state.open
+    });
 
-      //this.props.history.push('/app/search');
+    //this.props.history.push('/app/search');
   }
 
   componentDidMount() {
@@ -84,5 +92,13 @@ class SearchComponent extends React.Component {
     );
   }
 }
+
+SearchComponent.propTypes = {
+  newUser: PropTypes.bool.isRequired,
+};
+
+SearchComponent.defaultProps = {
+  newUser: false,
+};
 
 export default SearchComponent;

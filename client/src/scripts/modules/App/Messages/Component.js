@@ -9,7 +9,7 @@ class MessagesComponent extends React.Component {
     return (
       <div className={style.messages_page}>
        
-       <div className={style.title}>Messages Page</div>
+       <div className={style.title}>Messages</div>
         
         <MessagesList {...this.props} />
 

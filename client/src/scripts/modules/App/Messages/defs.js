@@ -1,3 +1,9 @@
+export const CURRENT_MESSAGES_LIST = [];
+export const CURRENT_MESSAGE_THREADS = [];
+
+export const EMPTY_MESSAGES_LIST = [];
+export const EMPTY_MESSAGE_THREADS = [];
+
 export const EXAMPLE_MESSAGES_LIST = [
     {
         id: 1,
@@ -137,3 +143,13 @@ export const EXAMPLE_MESSAGE_THREADS = [
         ],
     },
 ];
+
+export const fillMessages = () => {
+  for (let i = 0; i < EXAMPLE_MESSAGES_LIST.length; i++) {
+    CURRENT_MESSAGES_LIST.push(EXAMPLE_MESSAGES_LIST[i]);
+  }
+
+  for (let i = 0; i < EXAMPLE_MESSAGE_THREADS.length; i++) {
+    CURRENT_MESSAGE_THREADS.push(EXAMPLE_MESSAGE_THREADS[i]);
+  }
+};

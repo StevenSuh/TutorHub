@@ -244,8 +244,8 @@ ProfileComponent.propTypes = {
 
 ProfileComponent.defaultProps = {
   isTutor: true,
-  profile: defs.EXAMPLE_PROFILE,
-  reviews: defs.EXAMPLE_REVIEWS,
+  profile: defs.CURRENT_PROFILE,
+  reviews: defs.CURRENT_REVIEWS,
 };
 
 export default ProfileComponent;

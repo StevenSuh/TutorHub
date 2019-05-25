@@ -21,6 +21,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <Navbar location={location} />
         <TransitionGroup className="transition-group">
           <CSSTransition
             appear
@@ -44,7 +45,6 @@ class App extends React.Component {
             </div>
           </CSSTransition>
         </TransitionGroup>
-        <Navbar location={location} />
       </div>
     );
   }

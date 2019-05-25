@@ -18,9 +18,9 @@ import {
 class LandingPage extends React.Component {
   render() {
     return (
-            <Router>
+            <div>
                 <Main />
-            </Router>
+            </div>
         );
   }
 }
@@ -33,7 +33,7 @@ class LandingPage extends React.Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/password" component={Password} />
-            <Route exact path="/app" component={App}/>
+            <Redirect to="/" />
           </Switch>
 
     )

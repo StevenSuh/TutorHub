@@ -1,3 +1,25 @@
+export const CURRENT_PROFILE = {
+  name: '',
+  bio: '',
+  photoUrl: '',
+  transcriptUrl: '',
+  subjects: [],
+  availability: '',
+};
+
+export const CURRENT_REVIEWS = [];
+
+export const EMPTY_PROFILE = {
+  name: '',
+  bio: '',
+  photoUrl: '',
+  transcriptUrl: '',
+  subjects: [],
+  availability: '',
+};
+
+export const EMPTY_REVIEWS = [];
+
 export const EXAMPLE_PROFILE = {
   name: 'Stanley',
   bio: 'Econ major, fourth year. Love to teach! People think I\'m funny',
@@ -32,3 +54,13 @@ export const EXAMPLE_REVIEWS = [
       'laid-back attitude.',
   },
 ];
+
+export const fillProfile = () => {
+  for (let key in CURRENT_PROFILE) {
+    CURRENT_PROFILE[key] = EXAMPLE_PROFILE[key];
+  }
+
+  for (let i = 0; i < EXAMPLE_REVIEWS.length; i++) {
+    CURRENT_REVIEWS.push(EXAMPLE_REVIEWS[i]);
+  }
+};

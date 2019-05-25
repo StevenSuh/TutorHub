@@ -12,8 +12,8 @@ class MessagesComponent extends React.Component {
     super(props);
 
     const id = parseInt(this.props.match.params.id, 10);
-    const item = defs.EXAMPLE_MESSAGE_THREADS.find(item => item.id === id);
-    const msgItem = defs.EXAMPLE_MESSAGES_LIST.find(item => item.id === id);
+    const item = defs.CURRENT_MESSAGE_THREADS.find(item => item.id === id);
+    const msgItem = defs.CURRENT_MESSAGES_LIST.find(item => item.id === id);
 
     if (item && msgItem) {
       msgItem.isNew = false;
@@ -59,7 +59,7 @@ class MessagesComponent extends React.Component {
       thread: newThread,
     });
 
-    const msgItem = defs.EXAMPLE_MESSAGES_LIST.find(item => item.id === this.state.id);
+    const msgItem = defs.CURRENT_MESSAGES_LIST.find(item => item.id === this.state.id);
     msgItem.lastMessage = 'You: ' + input.value;
     msgItem.date = moment().format('M/DD/YY');
 
@@ -82,7 +82,7 @@ class MessagesComponent extends React.Component {
 
   componentDidMount() {
     const id = parseInt(this.props.match.params.id, 10);
-    const index = defs.EXAMPLE_MESSAGE_THREADS.findIndex(item => item.id === id);
+    const index = defs.CURRENT_MESSAGE_THREADS.findIndex(item => item.id === id);
 
     if (index === -1) {
       this.props.history.push('/app/messages');

@@ -6,6 +6,8 @@ import { Redirect } from 'react-router';
 
 import { ReactComponent as Back } from 'src/assets/icons/chevron-left.svg';
 
+import * as profileDefs from 'src/scripts/modules/App/Profile/defs';
+
 class SignupComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -33,18 +35,12 @@ class SignupComponent extends React.Component {
   handleSubmit(event){
     event.preventDefault();
       if(this.state.email.length>0 && this.state.name.length>0){
-        this.setState(
-          {
-            done:true
-          }
-        );
+        profileDefs.CURRENT_PROFILE = this.state.name;
+        this.props.history.push('/password');
       }
   }
 
   render() {
-    if(this.state.done === true){
-      return <Redirect to='/password'/>
-    }
     return (
       // <div className={style.signup_page}>
       <div className='landing_page_padding'>
@@ -58,7 +54,7 @@ class SignupComponent extends React.Component {
         <div className='description'>
           <p className='create_acc'>Create Your Account</p>
           <p className='text dark_grey_word'>
-            <div className='hint'>Enter your full name and email</div>
+            <span className='hint'>Enter your full name and email</span>
           </p>
         </div>
 

@@ -21,8 +21,8 @@ const Wrapper = () =>
           unmountOnExit
         >
           <Switch>
-            <Route exact path="/" component={LandingPage} />
             <Route path="/app" component={App} />
+            <Route path="/" component={LandingPage} />
             <Redirect to="/" />
           </Switch>
         </CSSTransition>

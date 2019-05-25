@@ -33,11 +33,7 @@ class PasswordComponent extends React.Component {
   handleSubmit(event){
     event.preventDefault();
     if(this.state.confirm.length>0 && this.state.password.length>0){
-      this.setState(
-        {
-          done:true
-        }
-      );
+      this.props.history.push('/app/search', { newUser: true });
     }
 
     //this.forceUpdate();
@@ -45,10 +41,6 @@ class PasswordComponent extends React.Component {
   }
 
   render() {
-    if(this.state.done === true){
-      window.location.replace(window.location.origin+"/app")
-    }
-
     return (
       <div className={classNames(style.signup_page, 'landing_page_padding')}>
 
@@ -64,7 +56,7 @@ class PasswordComponent extends React.Component {
           <div className='description'>
             <p className='create_acc'>Create A Password</p>
             <p className='text dark_grey_word'>
-            <div className='hint'>Enter and confirm your desired password</div>
+              <span className='hint'>Enter and confirm your desired password</span>
             </p>
           </div>
 

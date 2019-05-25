@@ -3,6 +3,14 @@
     padding-right: 45px;
 }
 
+.empty_list {
+    color: var(--grey-color);
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    margin-top: 20vh;
+}
+
 .message_container {
     color: var(--light-grey-color);
     opacity: 0.75;

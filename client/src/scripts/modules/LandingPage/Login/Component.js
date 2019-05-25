@@ -1,8 +1,11 @@
 import React from 'react';
 
 import style from '../style.css?module';
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import { ReactComponent as Back } from 'src/assets/icons/chevron-left.svg';
+
+import * as profileDefs from 'src/scripts/modules/App/Profile/defs';
+import * as messageDefs from 'src/scripts/modules/App/Messages/defs';
 
 class LoginComponent extends React.Component {
   constructor(props) {
@@ -30,21 +33,15 @@ class LoginComponent extends React.Component {
   handleSubmit(event){
     event.preventDefault();
     if(this.state.email.length>0 && this.state.password.length>0){
-      this.setState(
-        {
-          done:true
-        }
-      );
+      profileDefs.fillProfile();
+      messageDefs.fillMessages();
+      this.props.history.push('/app');
     }
     //this.forceUpdate();
     //window.location.reload();
   }
 
   render() {
-    if(this.state.done === true){
-      window.location.replace(window.location.origin+"/app")
-    }
-
     return (
       <div className={style.signup_page}>
 
