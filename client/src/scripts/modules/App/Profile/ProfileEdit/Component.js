@@ -108,7 +108,7 @@ class ProfileEditComponent extends React.Component {
     if (items.length === 0) {
       items.push(
         <h4 className={style.no_subject} key="Empty">
-          Currently not offering any subjects! Add a new course to become a tutor.
+          No Subjects
         </h4>
       );
     }

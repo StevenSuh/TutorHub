@@ -4,3 +4,101 @@
   overflow-y: auto;
   padding: 40px;
 }
+
+.back_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 33px;
+  left: -15px;
+  width: calc(100% + 30px);
+}
+
+.back_wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back_wrapper:active {
+  opacity: 0.5;
+}
+
+.back_text {
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 22px;
+}
+
+.done_text {
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.h2 {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.h2 > span {
+  color: var(--grey-color);
+}
+
+.person_wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.picture {
+  object-fit: cover;
+  object-position: top;
+  min-width: 80px;
+  width: 80px;
+  height: 80px;
+}
+
+.person_info {
+  margin-left: 20px;
+  width: calc(100% - 100px);
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.bio {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.avg_review_wrapper {
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.star {
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+.no_results {
+  margin-top: 20vh;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--grey-color);
+  text-align: center;
+}

@@ -6,16 +6,18 @@ import PropTypes from 'prop-types';
 import {ReactComponent as Close} from './../../../../assets/icons/plus_icon.svg'
 import {ReactComponent as SearchIcon} from './../../../../assets/icons/search_icon.svg'
 import {ReactComponent as DropDown} from './../../../../assets/icons/chevron-leftDownArrow.svg'
+
+import * as settingsDefs from '../Settings/defs';
+
 class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
     
     this.props.location.state = this.props.location.state || {};
     
-    const newUser = this.props.location.state.newUser || this.props.newUser;
+    const newUser = this.props.location.state.newUser === undefined ?
+      this.props.newUser : this.props.location.state.newUser;
 
-
-    console.log(this.props);
     this.state = {
       open: newUser,
     };
@@ -44,6 +46,11 @@ class SearchComponent extends React.Component {
 
   componentDidMount() {
 
+  }
+
+  becomeTutor = () => {
+    settingsDefs.CURRENT_SETTINGS.tutorMode = true;
+    this.props.history.push('/app/profile/edit');
   }
 
   render() {
@@ -77,7 +84,7 @@ class SearchComponent extends React.Component {
 
                       <button
                         className={classNames(style.modal_button,style.white_back,'hover')}
-                        onClick={()=> this.props.history.push('/app/profile/edit')}
+                        onClick={this.becomeTutor}
                         type="button"
                       >
                         Becoming a tutor

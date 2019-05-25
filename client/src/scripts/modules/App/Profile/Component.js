@@ -3,14 +3,18 @@ import classNames from 'classnames';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
+import Modal from 'src/scripts/components/Modal/Component';
 import ReviewModal from './ReviewModal/Component';
 
+import { ReactComponent as ChevronLeft } from 'src/assets/icons/chevron-left.svg';
 import { ReactComponent as PlusIcon } from 'src/assets/icons/plus_icon.svg';
 import { ReactComponent as StarIcon } from 'src/assets/icons/star.svg';
 import { ReactComponent as StarGreyIcon } from 'src/assets/icons/star_grey.svg';
 import style from './style.module.css';
 import * as defs from './defs';
 import * as msgDefs from '../Messages/defs';
+import * as searchDefs from '../Search/defs';
+import * as settingsDefs from '../Settings/defs';
 
 class ProfileComponent extends React.Component {
   constructor(props) {
@@ -18,11 +22,30 @@ class ProfileComponent extends React.Component {
 
     this.props.location.state = this.props.location.state || {};
 
-    const isTutor = this.props.location.state.isTutor || this.props.isTutor;
-    const profile = this.props.location.state.profile || this.props.profile;
-    const reviews = this.props.location.state.reviews || this.props.reviews;
+    const hasRequested = this.props.location.state.hasRequested === undefined ?
+      this.props.hasRequested : this.props.location.state.hasRequested;
+    const isTutor = this.props.location.state.isTutor === undefined ?
+      this.props.isTutor : this.props.location.state.isTutor;
+    const isSearching = this.props.location.state.isSearching === undefined ?
+      this.props.isSearching : this.props.location.state.isSearching;
+    let profile = this.props.profile;
+    let reviews = this.props.reviews;
+
+    if (this.props.match.params.id) {
+      const id = parseInt(this.props.match.params.id, 10);
+      const item = searchDefs.EXAMPLE_PROFILES.find(item => item.id === id);
+
+      if (item) {
+        profile = item;
+        reviews = item.reviews;
+      }
+    }
 
     this.state = {
+      isDisabled: isTutor && !settingsDefs.CURRENT_SETTINGS.tutorMode,
+      hasReviewed: false,
+      hasRequested,
+      isSearching,
       isReviewing: false,
       isTutor,
       profile,
@@ -33,13 +56,23 @@ class ProfileComponent extends React.Component {
     this.openAddReview = this.openAddReview.bind(this);
     this.editProfile = this.editProfile.bind(this);
     this.requestTutor = this.requestTutor.bind(this);
-    this.viewTranscripts = this.viewTranscripts.bind(this);
     this.closeReview = this.closeReview.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.match.params.id) {
+      const id = parseInt(this.props.match.params.id, 10);
+      const index = searchDefs.EXAMPLE_PROFILES.findIndex(item => item.id === id);
+  
+      if (index === -1) {
+        this.props.history.back();
+      }
+    }
   }
 
   calculateAvgReview(reviews) {
     const totalScore = reviews.reduce((x, { rating }) => rating + x, 0);
-    const avgReviewScore = Math.round(totalScore / reviews.length);
+    const avgReviewScore = Math.round(totalScore / Math.max(reviews.length, 1));
 
     return this.getReviewComponent(avgReviewScore);
   }
@@ -58,7 +91,7 @@ class ProfileComponent extends React.Component {
   }
 
   getSubjectComponent() {
-    return this.state.profile.subjects.map(({ title, description }) => (
+    const items = this.state.profile.subjects.map(({ title, description }) => (
       <div className={style.subject} key={title}>
         <h4 className={style.subject_title}>
           {title}
@@ -68,10 +101,20 @@ class ProfileComponent extends React.Component {
         </p>
       </div>
     ));
+
+    if (items.length === 0) {
+      items.push(
+        <div className={style.empty_subjects} key={0}>
+          No Subjects
+        </div>
+      );
+    }
+
+    return items;
   }
 
   getAllReviews() {
-    return this.state.reviews.map(({ rating, date, description }, index) => (
+    const items = this.state.reviews.map(({ rating, date, description }, index) => (
       <div className={style.review} key={index}>
         <div className={style.review_starline_wrapper}>
           <div className={style.review_star_wrapper}>
@@ -86,6 +129,16 @@ class ProfileComponent extends React.Component {
         </p>
       </div>
     ));
+    
+    if (items.length === 0) {
+      items.push(
+        <div className={style.empty_reviews} key={0}>
+          No Reviews
+        </div>
+      );
+    }
+
+    return items;
   }
 
   addReview(review) {
@@ -111,7 +164,8 @@ class ProfileComponent extends React.Component {
 
   requestTutor() {
     // should add a new message thread
-    const id = msgDefs.EXAMPLE_MESSAGES_LIST[msgDefs.EXAMPLE_MESSAGES_LIST.length - 1].id + 1;
+    const firstItem = msgDefs.CURRENT_MESSAGES_LIST[msgDefs.CURRENT_MESSAGES_LIST.length - 1];
+    const id = firstItem === undefined ? 0 : firstItem.id + 1;
 
     const msgList = {
       id,
@@ -119,31 +173,35 @@ class ProfileComponent extends React.Component {
       from: this.state.profile.name,
       fromPhotoUrl: this.state.profile.photoUrl,
       date: moment().format('M/DD/YY'),
-      lastMessage: `Send a message ${this.state.profile.name} to what you’re looking for in a tutor.`,
+      lastMessage: `Send a message to ${this.state.profile.name} to talk about what you’re looking for in a tutor.`,
     };
-    msgDefs.EXAMPLE_MESSAGES_LIST.splice(0, 0, msgList);
+    msgDefs.CURRENT_MESSAGES_LIST.splice(0, 0, msgList);
 
     const msgThread = {
       id,
       from: this.state.profile.name,
       thread: [],
     };
-    msgDefs.EXAMPLE_MESSAGE_THREADS.splice(0, 0, msgThread);
+    msgDefs.CURRENT_MESSAGE_THREADS.splice(0, 0, msgThread);
 
     this.props.history.push('/app/messages');
   }
 
-  viewTranscripts() {
-    window.open(this.props.profile.transcriptUrl);
+  closeReview(hasReviewed = false) {
+    this.setState({ ...this.state, isReviewing: false, hasReviewed });
   }
 
-  closeReview() {
-    this.setState({ ...this.state, isReviewing: false });
+  onClickBack = () => {
+    this.props.history.goBack();
   }
 
   render() {
     const {
+      hasReviewed,
+      hasRequested,
+      isDisabled,
       isReviewing,
+      isSearching,
       isTutor,
       profile,
       reviews,
@@ -151,11 +209,39 @@ class ProfileComponent extends React.Component {
 
     return (
       <div className={classNames(style.profile_page)}>
+        <Modal open={isDisabled}>
+          <div className={style.error_content}>
+            <h2 className={style.error_header}>
+              Tutor Mode is disabled
+            </h2>
+            <p className={style.error_msg}>
+              To continue, enable tutor mode at Settings page
+            </p>
+            <div
+              className={classNames(style.error_confirm, 'hover')}
+              onClick={() => this.props.history.push('/app/settings')}
+            >
+              Confirm
+            </div>
+          </div>
+        </Modal>
         <ReviewModal
           open={!isTutor && isReviewing}
           onClose={this.closeReview}
           onAddReview={this.addReview}
         />
+
+        {this.props.location.pathname !== '/app/profile' && (
+          <div className={style.back_button}>
+            <div
+              className={style.back_wrapper}
+              onClick={this.onClickBack}
+            >
+              <ChevronLeft />
+              <div className={style.back_text}>Back</div>
+            </div>
+          </div>
+        )}
 
         <div className={classNames(style.person_wrapper)}>
           <img className={style.picture} src={profile.photoUrl || defs.DEFAULT_IMAGE} alt="profile" />
@@ -174,17 +260,17 @@ class ProfileComponent extends React.Component {
             </div>
           </div>
         </div>
-        {isTutor && (
-          <button
-            className={classNames(style.edit_profile, 'hover')}
-            onClick={this.editProfile}
-            type="button"
-          >
-            Edit Profile
-          </button>
-        )}
-        {!isTutor && (
-          <div>
+        <div className={style.tutor_wrapper}>
+          {isTutor && (
+            <button
+              className={classNames(style.edit_profile, 'hover')}
+              onClick={this.editProfile}
+              type="button"
+            >
+              Edit Profile
+            </button>
+          )}
+          {!isTutor && !hasRequested && (
             <button
               className={classNames(style.request_tutor, 'hover')}
               onClick={this.requestTutor}
@@ -192,15 +278,17 @@ class ProfileComponent extends React.Component {
             >
               Request Tutor
             </button>
-            <button
+          )}
+          {!isTutor && (
+            <a
               className={classNames(style.view_transcripts, 'hover')}
-              onClick={this.viewTranscripts}
-              type="button"
+              href={profile.transcriptUrl}
+              target="_blank"
             >
               View Transcripts
-            </button>
-          </div>
-        )}
+            </a>
+          )}
+        </div>
         <h2 className={style.subject_header}>
           Subjects
         </h2>
@@ -210,14 +298,21 @@ class ProfileComponent extends React.Component {
         <h2 className={style.availability_header}>
           Availability
         </h2>
-        <p className={style.availability}>
-          {profile.availability}
-        </p>
+        {profile.availability && (
+          <p className={style.availability}>
+            {profile.availability}
+          </p>
+        )}
+        {!profile.availability && (
+          <div className={style.empty_availability}>
+            No Availability
+          </div>
+        )}
         <div className={style.review_header_wrapper}>
           <h2 className={style.review_header}>
             Reviews
           </h2>
-          {!isTutor && (
+          {!isTutor && !isSearching && !hasReviewed && (
             <button
               className={classNames(style.review_add, 'hover')}
               onClick={this.openAddReview}
@@ -237,13 +332,17 @@ class ProfileComponent extends React.Component {
 }
 
 ProfileComponent.propTypes = {
+  hasRequested: PropTypes.bool.isRequired,
   isTutor: PropTypes.bool.isRequired,
+  isSearching: PropTypes.bool.isRequired,
   profile: PropTypes.object.isRequired,
   reviews: PropTypes.array.isRequired,
 };
 
 ProfileComponent.defaultProps = {
+  hasRequested: false,
   isTutor: true,
+  isSearching: false,
   profile: defs.CURRENT_PROFILE,
   reviews: defs.CURRENT_REVIEWS,
 };

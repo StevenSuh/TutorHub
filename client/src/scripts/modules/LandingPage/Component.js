@@ -1,15 +1,13 @@
 import React from 'react';
-
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import style from './style.css?module';
 import { Link } from 'react-router-dom'
 import Signup from './Signup/Component';
 import Login from './Login/Component';
 import Password from './Password/Component';
-import App from '../App/Component';
 
 import {
-  BrowserRouter as Router,
   Redirect,
   Route,
   Switch,
@@ -17,26 +15,39 @@ import {
 
 class LandingPage extends React.Component {
   render() {
+    const { location } = this.props;
+
     return (
-            <div>
-                <Main />
+      <div>
+        <TransitionGroup className="transition-group">
+          <CSSTransition
+            appear
+            classNames="reveal"
+            key={location.key}
+            timeout={{ enter: 200, exit: 0 }}
+            unmountOnExit
+          >
+            <div className="transition-group">
+              <Main />
             </div>
-        );
+          </CSSTransition>
+        </TransitionGroup>
+
+      </div>
+    );
   }
 }
 
   function Main() {
     return(
-
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/password" component={Password} />
-            <Redirect to="/" />
-          </Switch>
-
-    )
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/password" component={Password} />
+        <Redirect to="/" />
+      </Switch>
+    );
   }
 
   function Landing(){

@@ -6,6 +6,7 @@ import { ReactComponent as Back } from 'src/assets/icons/chevron-left.svg';
 
 import * as profileDefs from 'src/scripts/modules/App/Profile/defs';
 import * as messageDefs from 'src/scripts/modules/App/Messages/defs';
+import * as settingsDefs from 'src/scripts/modules/App/Settings/defs';
 
 class LoginComponent extends React.Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class LoginComponent extends React.Component {
     if(this.state.email.length>0 && this.state.password.length>0){
       profileDefs.fillProfile();
       messageDefs.fillMessages();
+      settingsDefs.CURRENT_SETTINGS.tutorMode = true;
       this.props.history.push('/app');
     }
     //this.forceUpdate();

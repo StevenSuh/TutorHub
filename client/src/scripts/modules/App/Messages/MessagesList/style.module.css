@@ -1,12 +1,13 @@
 .messages_page {
     padding-left: 45px;
     padding-right: 45px;
+    padding-bottom: 45px;
 }
 
 .empty_list {
     color: var(--grey-color);
     font-size: 18px;
-    line-height: 26px;
+    line-height: 30px;
     text-align: center;
     margin-top: 20vh;
 }

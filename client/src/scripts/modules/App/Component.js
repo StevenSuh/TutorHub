@@ -34,7 +34,7 @@ class App extends React.Component {
               <Switch>
                 <Route exact path="/app/search" component={Search} />
                 <Route exact path="/app/search/results" component={SearchResults} />
-                <Route exact path="/app/search/profile" component={Profile} />
+                <Route exact path="/app/search/profile/:id" component={Profile} />
                 <Route exact path="/app/profile" component={Profile} />
                 <Route exact path="/app/profile/edit" component={ProfileEdit} />
                 <Route exact path="/app/messages" component={Messages} />

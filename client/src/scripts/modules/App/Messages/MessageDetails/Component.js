@@ -89,16 +89,26 @@ class MessagesComponent extends React.Component {
     }
   }
 
+  onClickItem(id) {
+    this.props.history.push(`/app/search/profile/${id}`, {
+      isTutor: false,
+      isSearching: false,
+      hasRequested: true,
+    });
+  }
+
   getMessageThreadItems() {
     const thread = this.state.thread;
 
     const items = thread.map((message, index) => (
       <div key={index}>
-        <div className={classNames({
-          [style.name]: true,
-          [style.you]: message.isYou,
-        })}>
-          {message.from}
+        <div
+          className={classNames({
+            [style.name]: true,
+            [style.you]: message.isYou,
+          })}
+        >
+          {message.isYou ? 'You' : message.from}
         </div>
         <div className={classNames({
           [style.message_text]: true,
@@ -113,13 +123,13 @@ class MessagesComponent extends React.Component {
       if (this.state.isTalkingToTutor) {
         items.push(
           <h4 className={style.no_msg} key={0}>
-            {`Send a message ${this.state.from} to what you’re looking for in a tutor.`}
+            {`Send a message to talk about what ${this.state.from} is looking for in a tutor.`}
           </h4>
         );
       } else {
         items.push(
           <h4 className={style.no_msg} key={0}>
-            {`Send a message to ask ${this.state.from} looking for in a tutor.`}
+            {`Send a message to ${this.state.from} to talk about what you're looking for in a tutor.`}
           </h4>
         );
       }
@@ -130,6 +140,7 @@ class MessagesComponent extends React.Component {
 
   render() {
     const from = this.state.from;
+    const id = this.state.id;
 
     return (
       <div className={style.messages_page}>
@@ -142,7 +153,12 @@ class MessagesComponent extends React.Component {
             <ChevronLeft />
             <div className={style.back_text}>Back</div>
           </div>
-          <div className={style.sender}>{from}</div>
+          <div
+            className={classNames(style.sender, 'hover')}
+            onClick={() => this.onClickItem(id)}
+          >
+            {from}
+          </div>
           {this.getMessageThreadItems()}
         </div>
       

@@ -16,6 +16,7 @@ class ReviewModal extends React.Component {
     this.state = {
       rating: 0,
       description: '',
+      error: '',
     };
 
     this.onDone = this.onDone.bind(this);
@@ -26,19 +27,28 @@ class ReviewModal extends React.Component {
   onDone() {
     const { rating, description } = this.state;
 
+    if (rating === 0 || !description) {
+      this.setState({
+        ...this.state,
+        error: 'You are missing a field',
+      });
+      return;
+    }
+
     this.props.onAddReview({
       rating,
       description,
     });
-    this.onClose()
+    this.onClose(true);
   }
 
-  onClose() {
+  onClose(hasReviewed = false) {
     this.setState({
       rating: 0,
       description: '',
+      error: '',
     });
-    this.props.onClose();
+    this.props.onClose(hasReviewed);
   }
 
   onFeedbackChange({ target }) {
@@ -80,11 +90,14 @@ class ReviewModal extends React.Component {
         <div className={style.content}>
           <CloseIcon
             className={classNames(style.close, 'hover')}
-            onClick={this.onClose}
+            onClick={() => this.onClose()}
           />
           <h2 className={style.header}>
             Review Tutor
           </h2>
+          {this.state.error && (
+            <p className={style.error}>{this.state.error}</p>
+          )}
           <div className={style.review_wrapper}>
             {this.getReviewComponent()}
           </div>
@@ -98,7 +111,7 @@ class ReviewModal extends React.Component {
           <div className={style.button_wrapper}>
             <button
               className={classNames(style.cancel, 'hover')}
-              onClick={this.onClose}
+              onClick={() => this.onClose()}
             >
               Cancel
             </button>

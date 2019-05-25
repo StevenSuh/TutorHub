@@ -19,6 +19,7 @@
   --light-grey-color: #BDBDBD;
   --lighter-grey-color: #E0E0E0;
   --white-color: #FFFFFF;
+  --red-color: #E19292;
 }
 
 @font-face {
@@ -47,7 +48,6 @@ html,
 #root {
   color: var(--black-color);
   font-family: 'Circular Pro', Helvetica, sans-serif;
-  overflow: hidden;
   position: relative;
   width: 100%;
 }
@@ -114,7 +114,7 @@ button {
 }
 
 .hover {
-  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .hover:active {

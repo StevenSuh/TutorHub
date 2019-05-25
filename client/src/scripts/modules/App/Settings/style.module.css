@@ -1,4 +1,59 @@
 .settings_page {
+  padding: 40px;
+}
+
+.title {
   /* example */
+  /* color: var(--black-color); */
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 45px;
+}
+
+.header_wrapper {
+  margin-bottom: 40px;
+}
+
+.header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.input {
+  border: 1px solid var(--lighter-grey-color);
+  font-size: 16px;
+  resize: none;
+  padding: 12px;
+  margin: 0;
   width: 100%;
+  transition: border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input::placeholder {
+  color: var(--lighter-grey-color);
+  font-size: 16px;
+}
+
+.input:focus {
+  border-color: var(--grey-color);
+}
+
+.check_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.check_icon {
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  opacity: 0.3;
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.check_icon.active {
+  opacity: 1;
 }

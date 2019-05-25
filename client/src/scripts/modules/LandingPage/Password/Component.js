@@ -44,12 +44,10 @@ class PasswordComponent extends React.Component {
     return (
       <div className={classNames(style.signup_page, 'landing_page_padding')}>
 
-        <Link to="/signup">
           <div className='back_container'>
-            <Back className='back'></Back>
-            <p className='back_text'>Back</p>
+            <Back className='back' onClick={this.props.history.goBack}></Back>
+            <p className='back_text' onClick={this.props.history.goBack}>Back</p>
           </div>
-        </Link>
 
 
         <form  onSubmit={this.handleSubmit}>

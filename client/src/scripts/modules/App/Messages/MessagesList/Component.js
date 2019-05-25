@@ -41,7 +41,7 @@ class MessagesComponent extends React.Component {
     if (items.length === 0) {
       items.push(
         <div className={style.empty_list} key={0}>
-          No messages here.<br />Go find a tutor/tutee to talk to!
+          No messages here.<br />Go find someone to talk to!
         </div>
       );
     }

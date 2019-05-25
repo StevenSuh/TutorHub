@@ -5,6 +5,62 @@
   padding: 40px;
 }
 
+.error_content {
+  padding: 40px;
+  padding-top: 45px;
+  min-width: 300px;
+}
+
+.error_header {
+  font-size: 20px;
+  font-weight: 600;
+  margin: auto;
+  margin-bottom: 30px;
+  text-align: center;
+  width: max-content;
+}
+
+.error_msg {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.error_confirm {
+  width: min-content;
+  margin: auto;
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  font-size: 16px;
+  padding: 8px 34px;
+  cursor: pointer;
+}
+
+.back_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 33px;
+  left: -15px;
+  width: calc(100% + 30px);
+}
+
+.back_wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back_wrapper:active {
+  opacity: 0.5;
+}
+
+.back_text {
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 22px;
+}
+
 .person_wrapper {
   display: flex;
   align-items: flex-start;
@@ -20,6 +76,7 @@
 
 .person_info {
   margin-left: 20px;
+  width: calc(100% - 100px);
 }
 
 .name {
@@ -34,9 +91,15 @@
 
 .avg_review_wrapper {
   display: flex;
-  font-size: 12px;
+  font-size: 14px;
   justify-content: space-between;
   margin-top: 10px;
+  width: 100%;
+}
+
+.avg_review {
+  display: flex;
+  align-items: center;
 }
 
 .star {
@@ -88,6 +151,14 @@
   margin-bottom: 40px;
 }
 
+.empty_availability {
+  margin-bottom: 40px;
+  color: var(--grey-color);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
 .review_header_wrapper {
   display: flex;
   align-items: flex-start;
@@ -105,13 +176,17 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 14px;
   padding: 4px 8px;
   padding-left: 6px;
 }
 
 .review_add_icon {
   margin-right: 4px;
+}
+
+.review_add_icon > * {
+  stroke: var(--white-color);
 }
 
 .review {
@@ -139,7 +214,11 @@
 
 .review_description {
   font-size: 16px;
-  margin-top: 12px;
+  margin-top: 14px;
+}
+
+.tutor_wrapper {
+  margin-top: 40px;
 }
 
 .edit_profile,
@@ -149,7 +228,7 @@
   display: block;
   font-size: 16px;
   margin: auto;
-  padding: 12px;
+  padding: 14px;
   text-align: center;
   width: 80%;
 }
@@ -157,12 +236,7 @@
 .request_tutor {
   color: var(--white-color) !important;
   background-color: var(--blue-color);
-  margin-top: 40px;
   margin-bottom: 20px;
-}
-
-.edit_profile {
-  margin-top: 40px;
 }
 
 .edit_profile,
@@ -170,4 +244,19 @@
   background-color: var(--white-color);
   border: 2px solid var(--blue-color);
   color: var(--blue-color);
+}
+
+.empty_subjects {
+  color: var(--grey-color);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.empty_reviews {
+  color: var(--grey-color);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 25px;
 }

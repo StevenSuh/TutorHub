@@ -20,6 +20,7 @@
 }
 
 .sender {
+    cursor: pointer;
     text-align: center;
     font-weight: 600;
     margin-top: 30px;
@@ -68,6 +69,7 @@
     width: 100%;
     max-width: 500px;
     border-top: 1px solid var(--light-grey-color);
+    border-bottom: 1px solid var(--light-grey-color);
 }
 
 input::placeholder {

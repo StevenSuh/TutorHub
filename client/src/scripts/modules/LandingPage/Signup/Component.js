@@ -6,7 +6,7 @@ import { Redirect } from 'react-router';
 
 import { ReactComponent as Back } from 'src/assets/icons/chevron-left.svg';
 
-import * as profileDefs from 'src/scripts/modules/App/Profile/defs';
+import * as profileDefs from '../../App/Profile/defs';
 
 class SignupComponent extends React.Component {
   constructor(props) {
@@ -35,7 +35,8 @@ class SignupComponent extends React.Component {
   handleSubmit(event){
     event.preventDefault();
       if(this.state.email.length>0 && this.state.name.length>0){
-        profileDefs.CURRENT_PROFILE = this.state.name;
+        profileDefs.CURRENT_PROFILE.name = this.state.name;
+        console.log(profileDefs.CURRENT_PROFILE);
         this.props.history.push('/password');
       }
   }
@@ -87,13 +88,11 @@ class SignupComponent extends React.Component {
 function Signup(props){
   if(props.state.email.length>0 && props.state.name.length>0){
     return(
-      <Link to="/password">
       <div className ='button blue_back bottom'>
         <button className = 'centered text white_word next_button'>
           Next
         </button>
       </div>
-      </Link>
     )
   }
 
