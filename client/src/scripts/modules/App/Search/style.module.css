@@ -11,6 +11,7 @@
 }
 
 .close{
+  pointer-events: all;
   cursor: pointer;
   position: relative;
   width: 24px;
@@ -21,6 +22,7 @@
 }
 .content{
   padding: 40px;
+  pointer-events: none;
 }
 .welcome{
   position: relative;
@@ -74,6 +76,7 @@
   color: #6F82A5;
 }
 .modal_button{
+  pointer-events: all;
   cursor: pointer;
   display: block;
   font-size: 16px;
@@ -93,22 +96,12 @@
 }
 
 .search_container{
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  overflow: hidden;
 
-  width: 70%;
+  width: 255px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
 
-  font-family: Circular Pro;
-  font-size: 14px;
-  line-height: 18px;
-  /* identical to box height */
-
-  text-align: center;
 }
 
 .search_bar {
@@ -146,4 +139,14 @@
     width: 100%;
     max-width: 500px;
     border-top: 1px solid var(--light-grey-color);
+}
+
+input{
+  margin-top:0px;
+  font-family: Circular Pro;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-align: center;
 }

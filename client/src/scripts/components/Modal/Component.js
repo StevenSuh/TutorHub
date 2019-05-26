@@ -26,20 +26,26 @@ class Modal extends React.Component {
   render() {
     const { children, open } = this.props;
 
-    return (
-      <div className={style.modal}>
-        <div className={classNames({
-          [style.dark_bg]: true,
-          [style.open]: open,
-        })} />
-        <div className={classNames({
-          [style.content]: true,
-          [style.open]: open,
-        })}>
-          {children}
+    if(open){
+      return (
+        <div className={style.modal}>
+          <div className={classNames({
+            [style.dark_bg]: true,
+            [style.open]: open,
+          })} />
+          <div className={classNames({
+            [style.content]: true,
+            [style.open]: open,
+          })}>
+            {children}
+          </div>
         </div>
+      );
+    }
+    return(
+      <div>
       </div>
-    );
+    )
   }
 };
 
