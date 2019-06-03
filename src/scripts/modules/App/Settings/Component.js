@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import HelpModal from './HelpModal/Component';
+
 import { ReactComponent as CheckIcon } from 'src/assets/icons/check.svg';
 import style from './style.module.css';
 import * as defs from './defs';
@@ -11,6 +13,7 @@ class SettingsComponent extends React.Component {
     super(props);
 
     this.state = {
+      isHelp: false,
       name: profileDefs.CURRENT_PROFILE.name,
       settings: defs.CURRENT_SETTINGS,
     };
@@ -45,10 +48,34 @@ class SettingsComponent extends React.Component {
     });
   }
 
+  openHelp = () => {
+    this.setState({ ...this.state, isHelp: true });
+  }
+
+  closeHelp = () => {
+    this.setState({ ...this.state, isHelp: false });
+  }
+
   render() {
     return (
       <div className={style.settings_page}>
-        <div className={style.title}>Settings</div>
+        <HelpModal
+          open={this.state.isHelp}
+          onClose={this.closeHelp}
+        />
+
+        <div className={style.title_wrapper}>
+          <div className={classNames(style.help_icon, 'hover', 'hide')}>
+            ?
+          </div>
+          <div className={style.title}>Settings</div>
+          <div
+            className={classNames(style.help_icon, 'hover')}
+            onClick={this.openHelp}
+          >
+            ?
+          </div>
+        </div>
 
         <div className={style.header_wrapper}>
           <h4 className={style.header}>Edit Name</h4>

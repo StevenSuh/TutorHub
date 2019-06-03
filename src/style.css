@@ -113,6 +113,23 @@ button {
   border: none;
 }
 
+.hide {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.react-select__placeholder {
+  color: var(--light-grey-color) !important;
+}
+
+.react-select__input > input {
+  margin-top:0px;
+  font-family: Circular Pro;
+  font-size: 14px;
+  line-height: 30px;
+  /* identical to box height */
+}
+
 .hover {
   transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }

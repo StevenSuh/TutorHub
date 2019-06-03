@@ -124,6 +124,7 @@ class SearchComponent extends React.Component {
             formatCreateLabel={(text)=>text}
             inputId="Search"
             OnBlur = {()=>{}}
+            classNamePrefix="react-select"
             />
           </form>
           <Modal open={this.state.open}

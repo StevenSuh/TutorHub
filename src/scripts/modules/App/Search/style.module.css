@@ -11,7 +11,6 @@
 }
 
 .close{
-  pointer-events: all;
   cursor: pointer;
   position: relative;
   width: 24px;
@@ -19,10 +18,16 @@
   float: right;
   margin: 10px;
   transform: rotate(-45deg);
+  z-index: 1;
 }
+.close > * {
+  stroke: var(--black-color);
+  stroke-width: 0.75px;
+}
+
+
 .content{
   padding: 40px;
-  pointer-events: none;
 }
 .welcome{
   position: relative;
@@ -76,7 +81,6 @@
   color: #6F82A5;
 }
 .modal_button{
-  pointer-events: all;
   cursor: pointer;
   display: block;
   font-size: 16px;
@@ -97,7 +101,7 @@
 
 .search_container{
 
-  width: 255px;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -141,12 +145,10 @@
     border-top: 1px solid var(--light-grey-color);
 }
 
-input{
+.react-select__input > input {
   margin-top:0px;
   font-family: Circular Pro;
   font-size: 14px;
   line-height: 18px;
   /* identical to box height */
-
-  text-align: center;
 }

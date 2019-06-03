@@ -2,13 +2,32 @@
   padding: 40px;
 }
 
+.title_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 45px;
+}
+
+.help_icon {
+  cursor: pointer;
+  background-color: var(--light-blue-color);
+  color: var(--blue-color);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 100px;
+  height: 25px;
+  line-height: 25px;
+  width: 25px;
+  text-align: center;
+}
+
 .title {
   /* example */
   /* color: var(--black-color); */
   text-align: center;
   font-weight: 600;
   font-size: 20px;
-  margin-bottom: 45px;
 }
 
 .header_wrapper {
