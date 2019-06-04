@@ -4,7 +4,11 @@ export const EXAMPLE_PROFILES = [
     name: 'Stanley',
     bio: 'Econ major, fourth year. Love to teach! People think I\'m funny',
     photoUrl: 'https://vignette.wikia.nocookie.net/theoffice/images/2/23/Stanley_Hudson.jpg/revision/latest/scale-to-width-down/700?cb=20170701085445',
-    transcriptUrl: 'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    transcriptUrls: [
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    ],
     subjects: [
       { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
       { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },
@@ -36,7 +40,11 @@ export const EXAMPLE_PROFILES = [
     name: 'Dwight',
     bio: 'I will teach you how to efficiently pass classes without breaking a sweat.',
     photoUrl: 'https://vignette.wikia.nocookie.net/theoffice/images/c/c5/Dwight_.jpg/revision/latest/scale-to-width-down/700?cb=20170701082424',
-    transcriptUrl: 'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    transcriptUrls: [
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    ],
     subjects: [
       { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
       { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },
@@ -68,7 +76,11 @@ export const EXAMPLE_PROFILES = [
     name: 'Oscar',
     bio: 'Helped numerous struggling students past week 5 obtain A\'s',
     photoUrl: 'https://vignette.wikia.nocookie.net/theoffice/images/2/25/Oscar_Martinez.jpg/revision/latest/scale-to-width-down/700?cb=20170701085818',
-    transcriptUrl: 'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    transcriptUrls: [
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    ],
     subjects: [
       { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
       { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },
@@ -100,7 +112,11 @@ export const EXAMPLE_PROFILES = [
     name: 'Angela',
     bio: 'I will provide study guides and offer all the materials you need to get an A.',
     photoUrl: 'https://vignette.wikia.nocookie.net/theoffice/images/0/0b/Angela_Martin.jpg/revision/latest/scale-to-width-down/700?cb=20170701090232',
-    transcriptUrl: 'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    transcriptUrls: [
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    ],
     subjects: [
       { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
       { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },
@@ -132,7 +148,11 @@ export const EXAMPLE_PROFILES = [
     name: 'Pam',
     bio: 'Enjoys teaching and knows the tips and tricks to succeed.',
     photoUrl: 'https://vignette.wikia.nocookie.net/theoffice/images/6/67/Pam_Beesley.jpg/revision/latest/scale-to-width-down/700?cb=20170701084358',
-    transcriptUrl: 'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    transcriptUrls: [
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+      'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    ],
     subjects: [
       { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
       { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },

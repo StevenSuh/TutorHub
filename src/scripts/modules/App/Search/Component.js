@@ -56,7 +56,6 @@ class SearchComponent extends React.Component {
     //event.preventDefault();
 
     const query = event.value || document.getElementById("Search").value;
-    console.log(document.getElementById("Search"));
     if (query) {
       this.props.history.push('/app/search/results',{query});
     }

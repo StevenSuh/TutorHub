@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import ImageLinkModal from '../ImageLinkModal/Component';
+import ImageGridModal from '../ImageGridModal/Component';
 import SubjectModal from '../SubjectModal/Component';
 
 import { ReactComponent as ChevronLeft } from 'src/assets/icons/chevron-left.svg';
@@ -27,6 +28,7 @@ class ProfileEditComponent extends React.Component {
       changeLink: 'picture',
       isAdding: false,
       isChangingPic: false,
+      isChangingTranscript: false,
       profile: this.props.profile,
       subjectFocus: [],
     };
@@ -41,7 +43,11 @@ class ProfileEditComponent extends React.Component {
   }
 
   openTranscriptUrl = () => {
-    this.setState({ ...this.state, isChangingPic: true, changeLink: 'transcript' });
+    this.setState({ ...this.state, isChangingTranscript: true });
+  }
+
+  closeTranscriptUrl = () => {
+    this.setState({ ...this.state, isChangingTranscript: false });
   }
 
   closePictureUrl = () => {
@@ -194,6 +200,7 @@ class ProfileEditComponent extends React.Component {
       bioFocus,
       isAdding,
       isChangingPic,
+      isChangingTranscript,
       changeLink,
       profile,
     } = this.state;
@@ -204,8 +211,15 @@ class ProfileEditComponent extends React.Component {
           open={isChangingPic}
           onClose={this.closePictureUrl}
           onSubmit={this.changePictureUrl}
-          link={changeLink === 'picture' ? profile.photoUrl : profile.transcriptUrl}
+          link={changeLink === 'picture' ? profile.photoUrl : profile.transcriptUrls[0]}
           type={changeLink}
+        />
+        <ImageGridModal
+          open={isChangingTranscript}
+          onClose={this.closeTranscriptUrl}
+          onSubmit={this.changePictureUrl}
+          links={profile.transcriptUrls}
+          isEditing={true}
         />
         <SubjectModal
           open={isAdding}

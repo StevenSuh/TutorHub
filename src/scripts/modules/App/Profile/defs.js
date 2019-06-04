@@ -2,7 +2,7 @@ export const CURRENT_PROFILE = {
   name: '',
   bio: '',
   photoUrl: '',
-  transcriptUrl: '',
+  transcriptUrls: [],
   subjects: [],
   availability: '',
 };
@@ -13,7 +13,7 @@ export const EMPTY_PROFILE = {
   name: '',
   bio: '',
   photoUrl: '',
-  transcriptUrl: '',
+  transcriptUrls: [],
   subjects: [],
   availability: '',
 };
@@ -24,7 +24,11 @@ export const EXAMPLE_PROFILE = {
   name: 'Stanley',
   bio: 'Econ major, fourth year. Love to teach! People think I\'m funny',
   photoUrl: 'https://vignette.wikia.nocookie.net/theoffice/images/2/23/Stanley_Hudson.jpg/revision/latest/scale-to-width-down/700?cb=20170701085445',
-  transcriptUrl: 'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+  transcriptUrls: [
+    'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+    'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
+  ],
   subjects: [
     { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
     { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },

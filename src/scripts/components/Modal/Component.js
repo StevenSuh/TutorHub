@@ -28,10 +28,13 @@ class Modal extends React.Component {
 
     return (
       <div className={style.modal}>
-        <div className={classNames({
-          [style.dark_bg]: true,
-          [style.open]: open,
-        })} />
+        <div
+          className={classNames({
+            [style.dark_bg]: true,
+            [style.open]: open,
+          })}
+          onClick={this.props.onClose}
+        />
         <div className={classNames({
           [style.content]: true,
           [style.open]: open,
@@ -45,6 +48,11 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
   open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func,
+};
+
+Modal.defaultProps = {
+  onClose: () => {},
 };
 
 export default Modal;

@@ -33,7 +33,8 @@ class ImageLinkModal extends React.Component {
     if (this.props.type === 'picture') {
       result.photoUrl = link;
     } else {
-      result.transcriptUrl = link;
+      result.transcriptUrls = [];
+      result.transcriptUrls[0] = link;
     }
 
     this.props.onSubmit(result);

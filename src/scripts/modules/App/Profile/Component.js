@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Modal from 'src/scripts/components/Modal/Component';
 import ReviewModal from './ReviewModal/Component';
+import ImageGridModal from './ImageGridModal/Component';
 
 import { ReactComponent as ChevronLeft } from 'src/assets/icons/chevron-left.svg';
 import { ReactComponent as PlusIcon } from 'src/assets/icons/plus_icon.svg';
@@ -42,6 +43,7 @@ class ProfileComponent extends React.Component {
     }
 
     this.state = {
+      isTranscripts: false,
       isDisabled: isTutor && !settingsDefs.CURRENT_SETTINGS.tutorMode,
       hasReviewed: false,
       hasRequested,
@@ -187,6 +189,14 @@ class ProfileComponent extends React.Component {
     this.props.history.push('/app/messages');
   }
 
+  viewTranscripts = () => {
+    this.setState({ ...this.state, isTranscripts: true });
+  }
+
+  closeTranscripts = () => {
+    this.setState({ ...this.state, isTranscripts: false });
+  }
+
   closeReview(hasReviewed = false) {
     this.setState({ ...this.state, isReviewing: false, hasReviewed });
   }
@@ -202,6 +212,7 @@ class ProfileComponent extends React.Component {
       isDisabled,
       isReviewing,
       isSearching,
+      isTranscripts,
       isTutor,
       profile,
       reviews,
@@ -229,6 +240,13 @@ class ProfileComponent extends React.Component {
           open={!isTutor && isReviewing}
           onClose={this.closeReview}
           onAddReview={this.addReview}
+        />
+        <ImageGridModal
+          onClose={this.closeTranscripts}
+          onSubmit={this.closeTranscripts}
+          open={isTranscripts}
+          links={profile.transcriptUrls}
+          isEditing={false}
         />
 
         {this.props.location.pathname !== '/app/profile' && (
@@ -280,13 +298,13 @@ class ProfileComponent extends React.Component {
             </button>
           )}
           {!isTutor && (
-            <a
+            <button
               className={classNames(style.view_transcripts, 'hover')}
-              href={profile.transcriptUrl}
-              target="_blank"
+              onClick={this.viewTranscripts}
+              type="button"
             >
               View Transcripts
-            </a>
+            </button>
           )}
         </div>
         <h2 className={style.subject_header}>

@@ -32,9 +32,16 @@
   left: 50%;
   opacity: 0;
   pointer-events: none;
+  width: 400px;
   transform: translate(-50%, -50%);
   transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 3px;
+}
+
+@media (max-width: 500px) {
+  .content {
+    width: 80%;
+  }
 }
 
 .content.open {
