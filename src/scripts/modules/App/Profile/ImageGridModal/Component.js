@@ -113,7 +113,11 @@ class ImageGridModal extends React.Component {
               timeout={{ enter: 200, exit: 0 }}
               unmountOnExit
             >
-              <div className={classNames(style.grid_wrapper, 'transition-group')}>
+              <div className={classNames({
+                [style.grid_wrapper]: true,
+                'transition-group': true,
+                [style.is_editing]: isEditing && this.state.links.length > 0,
+              })}>
                 {this.state.links.map((link, index) => (
                   <div className={style.grid_item} key={index}>
                     <img

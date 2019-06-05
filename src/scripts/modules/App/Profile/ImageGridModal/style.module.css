@@ -49,8 +49,8 @@
 }
 
 .img_close {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 100px;
   transform: translate(100%, -100%) rotate(45deg);
   background-color: var(--light-blue-color);
@@ -79,8 +79,8 @@
   height: 100%;
 }
 
-.feedback_wrapper {
-  margin-top: 30px;
+.is_editing {
+  margin-bottom: 30px;
 }
 
 .feedback_hide {

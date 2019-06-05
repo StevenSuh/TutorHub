@@ -11,7 +11,6 @@ export const EXAMPLE_PROFILES = [
     ],
     subjects: [
       { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
-      { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },
     ],
     availability: 'Monday — 12PM to 6PM\nWednesday — 10AM to 12PM\nFriday — 5PM to 9PM',
     reviews: [
@@ -46,7 +45,6 @@ export const EXAMPLE_PROFILES = [
       'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
     ],
     subjects: [
-      { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
       { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },
     ],
     availability: 'Monday — 12PM to 6PM\nWednesday — 10AM to 12PM\nFriday — 5PM to 9PM',
@@ -83,7 +81,6 @@ export const EXAMPLE_PROFILES = [
     ],
     subjects: [
       { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
-      { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },
     ],
     availability: 'Monday — 12PM to 6PM\nWednesday — 10AM to 12PM\nFriday — 5PM to 9PM',
     reviews: [
@@ -119,7 +116,6 @@ export const EXAMPLE_PROFILES = [
     ],
     subjects: [
       { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
-      { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },
     ],
     availability: 'Monday — 12PM to 6PM\nWednesday — 10AM to 12PM\nFriday — 5PM to 9PM',
     reviews: [
@@ -154,7 +150,6 @@ export const EXAMPLE_PROFILES = [
       'https://documentation.skillsoft.com/en_us/skillport/8_i/lh/resources/images/lhc_learner_transcript_page.gif',
     ],
     subjects: [
-      { title: 'Economics', description: 'ECON 10A, ECON 161A, ECON 113' },
       { title: 'Computer Science', description: 'CMPS 12A, CMPS 12B, CMPS 101' },
     ],
     availability: 'Monday — 12PM to 6PM\nWednesday — 10AM to 12PM\nFriday — 5PM to 9PM',
