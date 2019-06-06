@@ -8,7 +8,7 @@ Design: [Figma](https://www.figma.com/file/QgzacPd5z7j5gHscnZSNjonv/Tutor-Hub)
 
 Frontend: React
 
-Backend: Node.js with Firebase
+Backend: Node.js with Firebase (Not Applicable anymore)
 
 ## Instructions
 Run `npm install` to install dependencies.<br>
