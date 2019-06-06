@@ -3,6 +3,8 @@ CMPM 131 Project
 
 Members: Janelynn Camingue, Lyanna Ho, Steven Suh
 
+[GitHub Link](https://github.com/StevenSuh/TutorHub)
+
 ## Stack
 Design: [Figma](https://www.figma.com/file/QgzacPd5z7j5gHscnZSNjonv/Tutor-Hub)
 
